@@ -101,15 +101,6 @@ window.menus = {
 			enabled: false, // @TODO for desktop app
 			description: "",
 		},
-		MENU_DIVIDER,
-		{
-			item: "E&xit",
-			// shortcut: "Alt+F4", // closes browser window
-			action: ()=> {
-				closeWindwow(0);
-			},
-			description: "Quits Paint.",
-		}
 	],
 	"&Edit": [
 		{

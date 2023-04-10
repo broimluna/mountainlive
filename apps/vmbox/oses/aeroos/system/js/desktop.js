@@ -1,6 +1,3 @@
-var kernelver = "3";
-var buildnumb = "6000";
-var iframei = 0
 var i = 0,
 minimizedWidth = new Array,
 minimizedHeight = new Array,
@@ -8,53 +5,69 @@ windowTopPos = new Array,
 windowLeftPos = new Array,
 panel,
 id;
-
+function watermarkstamp() {
+	let nLastModif = document.lastModified;
+	var watermark = document.getElementById("watermark")
+	watermark.innerText = "Luna's aeroOS\nBuild compiled on\n" + nLastModif;
+	}
 
 	window.addEventListener('load', function () {
 		$("#startup").fadeOut();
-		//Kernel Write
-		var kerver = document.getElementsByClassName("kernelver")[0];
-		kerver.innerText = kernelver;
-		//Build write
-		var buildnumber = document.getElementsByClassName("buildnumb")[0];
-		buildnumber.innerText = buildnumb;
-		//Release Write
-		const lastUpdated = new Date(document.lastModified);
-		const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-		var month = monthNames[lastUpdated.getMonth()];
-		var year = lastUpdated.getFullYear();
-		var releaseversion = document.getElementsByClassName("releasever")[0];
-		releaseversion.innerText = month + " " + year;
-		//Watermark Stamp
-		let nLastModif = document.lastModified;
-		var watermark = document.getElementById("watermark")
-		watermark.innerText = "Luna's mountainOS\n Build " + buildnumb + "\nCompiled on " + nLastModif;
-		
 })
 
 //Startup Functions 
 function startupFunctions() {
 	startDate();
-	quiloadWeather();
-	quiloadDate();
-	startCookies();
+	watermarkstamp();
 }
 
-if (/^h/.test(document.location)) {
-	setInterval(function() {
-		// method to be executed;
-		$(".iframe").each(function() {
-			var dataId = $(this).attr("data-id");
-			var datatitle = document.getElementsByClassName("iframe")[dataId].contentDocument.title;
-			document.getElementsByClassName("winheadstrongtitle")[dataId].innerText = datatitle;
+//right click menu huh
+document.oncontextmenu = rightClick;
+  
+  function rightClick(clickEvent) {
+	  clickEvent.preventDefault();
+	  // return false;
+  }
+  document.onclick = hideMenu;
+  document.oncontextmenu = rightClick;
 	
-		});
-	  }, 1500);
-  } else {
-	void(0);
+  function hideMenu() {
+	  document.getElementById("contextMenu")
+			  .style.display = "none"
   }
 
+  function rightClick(e) {
+	  e.preventDefault();
 
+	  if (document.getElementById("contextMenu")
+			  .style.display == "block")
+		  hideMenu();
+	  else{
+		  var menu = document.getElementById("contextMenu")
+
+		  menu.style.display = 'block';
+		  menu.style.left = e.pageX + "px";
+		  menu.style.top = e.pageY + "px";
+	  }
+  }
+
+  function activatefull(ele) {
+	if (ele.requestFullscreen) {
+		ele.requestFullscreen();
+	}
+}
+
+// Function for full screen activation
+function deactivatefull() {
+	if (document.exitFullscreen) {
+		document.exitFullscreen();
+	}
+}
+
+
+
+
+//
 
 function adjustFullScreenSize() {
 	$(".fullSizeWindow .wincontent").css("width", (window.innerWidth - 32));
@@ -104,7 +117,7 @@ function openWindow(id) {
 		});
 	}
 }
-function closeWindow(id) {
+function closeWindwow(id) {
 	$("#window" + id).animate({
 		opacity: 0
 	}, 200, function() {
@@ -134,16 +147,11 @@ $(document).ready(function(){
 		minimizedHeight[i] = $(this).height();
 		windowTopPos[i] = $(this).css("top");
 		windowLeftPos[i] = $(this).css("left");
-		$("#taskbar").append('<div class="taskbarPanel" id="minimPanel' + i + '" data-id="' + i + '">' + $(this).attr("taskicon") + $(this).attr("data-title") + '</div>');
+		$("#taskbar").append('<div class="taskbarPanel" id="minimPanel' + i + '" data-id="' + i + '">' + $(this).attr("taskicon") + '</div>');
 		if ($(this).hasClass("closed")) {	$("#minimPanel" + i).addClass('closed');	}		
 		$(this).attr('id', 'window' + (i++));
 		$(this).wrapInner('<div class="wincontent"></div>');
 		$(this).prepend('<div class="windowHeader"><strong>' + $(this).attr("headicon") + $(this).attr("data-title") + '</strong><span title="Minimize" class="winminimize"><span></span></span><span title="Maximize" class="winmaximize"><span></span><span></span></span><span title="Close" class="winclose">x</span></div>');
-	});
-
-	$(".iframe").each(function() {
-		$(this).attr('data-id', iframei);
-		iframei++;
 	});
 	
 	$("#minimPanel" + (i-1)).addClass('activeTab');
@@ -157,16 +165,9 @@ $(document).ready(function(){
 		makeWindowActive($(this).attr("data-id"));
     });
 	
-
-	$(".winclose").click(function(){
-		var dataId = $(this).parent().parent().attr("data-id");
-		closeWindow(dataId);
-		setTimeout(function() {
-			document.getElementsByClassName('iframe')[dataId].src = document.getElementsByClassName('iframe')[dataId].src;
-		}, 500);
-	});
-	
-	
+    $(".winclose").click(function(){		// close window
+		closeWindwow($(this).parent().parent().attr("data-id"));
+    });	
 
     $(".winminimize").click(function(){		// minimize window
 		minimizeWindow($(this).parent().parent().attr("data-id"));
@@ -188,11 +189,6 @@ $(document).ready(function(){
     $(".openWindow").click(function(){		// open closed window
 		openWindow($(this).attr("data-id"));
     });
-	$(".reloadWindow").click(function(){	
-		var dataId = $(this).attr("data-id");
-		var window = document.getElementsByClassName('wincontent')[dataId].innerHTML;
-        document.getElementsByClassName('wincontent')[dataId].innerHTML = window;
-    });
 
 	
     $(".winmaximize").click(function(){
@@ -209,7 +205,6 @@ $(document).ready(function(){
 			
 			adjustFullScreenSize();
 		}
-	
     });		
 	adjustFullScreenSize();	
 });

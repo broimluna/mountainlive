@@ -112,6 +112,7 @@ function createCookie(cname,cvalue,exdays) {
   if (document.cookie.indexOf("mOSLeftBar=true") != -1 || localStorage.getItem('mOSLeftBar') === "true")  {
 	var taskbar = document.getElementById("taskbar");
 	var checkBox = document.getElementById("centrdAppsChk");
+	var checkSetup = document.getElementById("centrdAppsChkSetup");
 	var appsmenu = document.getElementById("appsmenu");
 	var timedate = document.getElementsByClassName("timedate")[0];
 	appsmenu.style.margin = "unset";
@@ -122,6 +123,7 @@ function createCookie(cname,cvalue,exdays) {
 	taskbar.style.bottom = "0px";
 	appsmenu.style.bottom = "58px";
 	checkBox.checked = "true"
+	checkSetup.checked = "true"
   }
 }
 
@@ -147,9 +149,73 @@ function createCookie(cname,cvalue,exdays) {
 	localStorage.removeItem("mOSColor")
    };
 
+   
+
+	function CheckFTUEandUsername() {
+		if (document.cookie.indexOf("FTUEStatus=todo") == null || localStorage.getItem('FTUEStatus') === null)  {
+			$("#firstexperience").css("display", "block");
+		}
+		else {
+			void(0);
+		}
+		if (localStorage.hasOwnProperty('mOSpfp') != -1)  {
+			var output = document.getElementsByClassName('pfpimage')[0];
+			var setoutput = document.getElementsByClassName('pfpimageset')[0];
+			var mOSpfpLS = localStorage.getItem("mOSpfp");
+			var base64uncom0 = mOSpfpLS.replaceAll("%", "A");
+			var base64uncom1 = base64uncom0.replace("ebubjnbhf", "data:image");
+			var base64uncom2 = base64uncom1.replace("moslssecurity", "base64");
+			var base64uncompressed = base64uncom2.replaceAll("'", "F");
+			output.src = base64uncompressed;
+			setoutput.src = base64uncompressed;		
+		} else {
+			return;		
+		}
+		var username = getCookie("mOSUsername") || localStorage.getItem("mOSUsername");
+		document.getElementsByClassName("userProfileTxt")[0].innerText = username;
+		document.getElementsByClassName("userProfileTxt")[0].textContent = username;
+		document.getElementsByClassName("userProfileSetTxt")[0].innerText = username;
+		document.getElementsByClassName("userProfileSetTxt")[0].textContent = username;
+	}
+
+	function checkAppTitleOnTskBarCook() {
+		if (document.cookie.indexOf("mOSAppTitleOnTskBar=true") != -1 || localStorage.getItem('mOSAppTitleOnTskBar') === "true")  {
+			var checkBoxSettings = document.getElementById("AppTitleOnTaskBarPanelChk");
+			$(".taskbarPanel").each(function() {
+				$(".taskbarPanel").css("fontSize", "17px");
+				$(".taskbarPanel img").addClass("taskpanelimg");
+				checkBoxSettings.checked = true
+			})
+		}
+	}
+
   function startCookies() {
-	setColorCookie();
 	mOSLeftBarCookie();
+	checkAppTitleOnTskBarCook();
+	setColorCookie();
+	CheckFTUEandUsername();
 	checkBGCookie();
+
   }
+
+  function resetAllCookies() {
+	eraseCookie("mOSColor");
+	localStorage.removeItem("mOSColor");
+	eraseCookie("mOSUsername");
+	localStorage.removeItem("mOSUsername");
+	eraseCookie("mOSpfp");
+	localStorage.removeItem("mOSpfp");
+	eraseCookie("FTUEStatus");
+	localStorage.removeItem("FTUEStatus");
+	eraseCookie("mOSLeftBar");
+	localStorage.removeItem("mOSLeftBar");
+	eraseCookie("mOSBG");
+	localStorage.removeItem("mOSBG");
+	eraseCookie("mOSAppTitleOnTskBar");
+	localStorage.removeItem("mOSAppTitleOnTskBar");
+
+	alert("Cookies have been deleted.")
+  }
+
+
    

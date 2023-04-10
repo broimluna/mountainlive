@@ -58,15 +58,6 @@ var menus = {
 		// 	enabled: false,
 		// 	description: "Opens this document.",
 		// },
-		MENU_DIVIDER,
-		{
-			item: "E&xit",
-			// shortcut: "Alt+F4",
-			action: function(){
-				close();
-			},
-			description: "Quits Notepad.",
-		}
 	],
 	"&Edit": [
 		{

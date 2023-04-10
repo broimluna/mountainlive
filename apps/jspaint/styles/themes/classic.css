@@ -55,9 +55,10 @@ body {
 
 .window,
 .menu-popup {
-	border-radius: 2px;
-	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-	display: none;
+	background: #FFFFFF29;
+	backdrop-filter: blur(10px);
+	padding: 8px 0;
+	border-radius: 10px;
 }
 .window,
 .window-titlebar {
@@ -119,21 +120,28 @@ body {
 .menu-button,
 .menu-item {
 	outline: 0;
+	width: 90.5%;
+	margin: 0 auto;
+	position: relative;
+	border-radius: 5px;
+	display: -webkit-box;
+	padding: 0px;
 }
 
 .menu-button {
 	/*padding: 16px;*/
 	padding: 3px 7px 5px 7px;
 	margin-top: 2px;
-	border: 1px solid transparent;
+	border: 2px solid transparent;
         border-radius: 50px;
 }
 .menu-button:hover {
-	background: black;
+	border: 2px solid rgba(0, 0, 0, 0.200);
+	background: rgba(0, 0, 0, 0.5);
 }
 .menu-button:active,
 .menu-button.active {
-	background: black;
+	background: rgba(0, 0, 0, 0.750);
 }
 
 .menu-item:hover {
@@ -145,7 +153,8 @@ body {
 }
 
 .menu-popup {
-	background: white;
+	background: #FFFFFF29;
+	backdrop-filter: blur(10px);
 	padding: 8px 0;
 	border-radius: 10px;
 }
@@ -154,9 +163,12 @@ body {
 	padding: 6px 10px 6px 30px;
 }*/
 .menu-item td {
-	/*height: 32px;*/
+	/* height: 32px; */
 	height: 27px;
-	padding: 0;
+	padding: 0px;
+	right: 2px;
+	top: 5px;
+	position: relative;
 }
 .menu-item td:first-child {
 	padding-left: 16px;

@@ -25,11 +25,12 @@
 }
 #tabsettings {
     padding: 10px 0px;
-    width: 10%;
+    width: 0%;
     height: 10%;
 }
 #tabsettings button {
     margin: 2px -1px;
+    white-space: nowrap;
 }
 .tabset {
     display: none;
@@ -37,32 +38,5 @@
 #themesrow, #icons {
     display: none;
 }
-#window8.fullSizeWindow .wincontent  {
-    min-width: unset !important;
-    min-height: unset !important;
-    max-width: unset !important;
-    max-height: unset !important;  
-        }
 
-        #window8.fullSizeWindow .wincontent > .tab {
-            padding: 10px;
-            height: 73%;
-            overflow-y: scroll;
-            margin: -15px 0px;
-            left: unset !important;
-            position: unset !important;
-            width: unset !important;
-            border-left: unset !important;
-        }
-        #window8.fullSizeWindow .wincontent > #tabsettings {
-            padding: 10px 10px;
-            width: unset !important;
-            height: unset !important;
-        }
-        #window8.fullSizeWindow .wincontent > #tabsettings button {
-            margin: 0px -1px;
-        }
-        #window8.fullSizeWindow .wincontent > .tabset {
-            display: block;
-        }
 

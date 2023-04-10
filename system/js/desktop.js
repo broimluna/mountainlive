@@ -40,8 +40,52 @@ function deactivatefull() {
 		document.exitFullscreen();
 	}
 }
-
-
-
-
 //
+
+function finishFTUE() {
+	var usrInpt = document.getElementById("usrinpt").value;
+	$("#firstexperience").fadeOut(200);
+	if ( $('#usrinpt').val() === "" ) 
+	{
+		document.cookie = "FTUEStatus=completed"
+		localStorage.setItem("FTUEStatus", "completed")
+		document.cookie = "mOSUsername=User"
+		localStorage.setItem("mOSUsername", "User")
+		document.getElementsByClassName("userProfileTxt")[0].innerText = "User";
+		document.getElementsByClassName("userProfileTxt")[0].textContent = "User";
+		document.getElementsByClassName("userProfileSetTxt")[0].innerText = "User";
+		document.getElementsByClassName("userProfileSetTxt")[0].textContent = "User";
+	}
+	else {
+		document.cookie = "mOSUsername=" + usrInpt
+		localStorage.setItem("mOSUsername", usrInpt)
+		document.cookie = "FTUEStatus=completed"
+		localStorage.setItem("FTUEStatus", "completed")
+		document.getElementsByClassName("userProfileTxt")[0].innerText = usrInpt;
+		document.getElementsByClassName("userProfileTxt")[0].textContent = usrInpt;
+		document.getElementsByClassName("userProfileSetTxt")[0].innerText = usrInpt;
+		document.getElementsByClassName("userProfileSetTxt")[0].textContent = usrInpt;
+	}
+}
+
+//Alerts
+window.alert = function(msg){
+	$('.alertxt').text(msg);
+	$('#window11').css('animation', 'fadeIn 0.3s linear');
+	$('#window11').css('display', 'inline');
+	setTimeout(function(){
+	  $('#window11').css('animation', 'none');
+	}, 300);
+  }
+  
+  $(function(){
+	
+	// add listener for when our confirmation button is clicked
+	  $('.confirmButton').click(function(){
+	  $('#window11').css('animation', 'fadeOut 0.3s linear');
+	  setTimeout(function(){
+	  $('#window11').css('animation', 'none');
+	  $('#window11').css('display', 'none');
+	  }, 300);
+	})
+  });

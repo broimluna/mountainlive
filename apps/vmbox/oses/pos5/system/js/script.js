@@ -1,6 +1,15 @@
-var kernelver = "3";
-var buildnumb = "6000";
-var iframei = 0
+/*################################################################################
+##################################################################################
+##########                                                             ###########
+##########                                                             ###########
+##########        Windows Template by                                  ###########
+##########            https://html5-templates.com/                      ###########
+##########                                                             ###########
+##########        All rights reserved.                                 ###########
+##########                                                             ###########
+##################################################################################
+################################################################################*/
+
 var i = 0,
 minimizedWidth = new Array,
 minimizedHeight = new Array,
@@ -9,57 +18,9 @@ windowLeftPos = new Array,
 panel,
 id;
 
-
-	window.addEventListener('load', function () {
-		$("#startup").fadeOut();
-		//Kernel Write
-		var kerver = document.getElementsByClassName("kernelver")[0];
-		kerver.innerText = kernelver;
-		//Build write
-		var buildnumber = document.getElementsByClassName("buildnumb")[0];
-		buildnumber.innerText = buildnumb;
-		//Release Write
-		const lastUpdated = new Date(document.lastModified);
-		const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-		var month = monthNames[lastUpdated.getMonth()];
-		var year = lastUpdated.getFullYear();
-		var releaseversion = document.getElementsByClassName("releasever")[0];
-		releaseversion.innerText = month + " " + year;
-		//Watermark Stamp
-		let nLastModif = document.lastModified;
-		var watermark = document.getElementById("watermark")
-		watermark.innerText = "Luna's mountainOS\n Build " + buildnumb + "\nCompiled on " + nLastModif;
-		
-})
-
-//Startup Functions 
-function startupFunctions() {
-	startDate();
-	quiloadWeather();
-	quiloadDate();
-	startCookies();
-}
-
-if (/^h/.test(document.location)) {
-	setInterval(function() {
-		// method to be executed;
-		$(".iframe").each(function() {
-			var dataId = $(this).attr("data-id");
-			var datatitle = document.getElementsByClassName("iframe")[dataId].contentDocument.title;
-			document.getElementsByClassName("winheadstrongtitle")[dataId].innerText = datatitle;
-	
-		});
-	  }, 1500);
-  } else {
-	void(0);
-  }
-
-
-
 function adjustFullScreenSize() {
 	$(".fullSizeWindow .wincontent").css("width", (window.innerWidth - 32));
 	$(".fullSizeWindow .wincontent").css("height", (window.innerHeight - 98));
-	setTimeout(adjustFullScreenSize, 10);
 }
 function makeWindowActive(thisid) {
 	$(".window").each(function() {      
@@ -79,7 +40,8 @@ function minimizeWindow(id){
 	windowLeftPos[id] = $("#window" + id).css("left");
 	
 	$("#window" + id).animate({
-		opacity: 0
+		top: 800,
+		left: 0
 	}, 200, function() {		//animation complete
 		$("#window" + id).addClass('minimizedWindow');
 		$("#minimPanel" + id).addClass('minimizedTab');
@@ -89,28 +51,16 @@ function minimizeWindow(id){
 
 function openWindow(id) {
 	if ($('#window' + id).hasClass("minimizedWindow")) {
-		$("#window" + id).animate({
-			opacity: 1
-		}, 200, function() {
 		openMinimized(id);
-		})
-	} else {
-		$("#window" + id).animate({
-			opacity: 1
-		}, 1, function() {	
+	} else {	
 		makeWindowActive(id);
 		$("#window" + id).removeClass("closed");
 		$("#minimPanel" + id).removeClass("closed");
-		});
 	}
 }
-function closeWindow(id) {
-	$("#window" + id).animate({
-		opacity: 0
-	}, 200, function() {
+function closeWindwow(id) {
 	$("#window" + id).addClass("closed");
 	$("#minimPanel" + id).addClass("closed");
-	});
 }
 
 function openMinimized(id) {
@@ -120,8 +70,7 @@ function openMinimized(id) {
 		
 	$('#window' + id).animate({
 		top: windowTopPos[id],
-		left: windowLeftPos[id],
-		opacity: 1
+		left: windowLeftPos[id]
 	}, 200, function() {
 	});				
 }
@@ -134,39 +83,27 @@ $(document).ready(function(){
 		minimizedHeight[i] = $(this).height();
 		windowTopPos[i] = $(this).css("top");
 		windowLeftPos[i] = $(this).css("left");
-		$("#taskbar").append('<div class="taskbarPanel" id="minimPanel' + i + '" data-id="' + i + '">' + $(this).attr("taskicon") + $(this).attr("data-title") + '</div>');
+		$("#taskbar").append('<div class="taskbarPanel" id="minimPanel' + i + '" data-id="' + i + '">' + $(this).attr("data-title") + '</div>');
 		if ($(this).hasClass("closed")) {	$("#minimPanel" + i).addClass('closed');	}		
 		$(this).attr('id', 'window' + (i++));
 		$(this).wrapInner('<div class="wincontent"></div>');
-		$(this).prepend('<div class="windowHeader"><strong>' + $(this).attr("headicon") + $(this).attr("data-title") + '</strong><span title="Minimize" class="winminimize"><span></span></span><span title="Maximize" class="winmaximize"><span></span><span></span></span><span title="Close" class="winclose">x</span></div>');
-	});
-
-	$(".iframe").each(function() {
-		$(this).attr('data-id', iframei);
-		iframei++;
+		$(this).prepend('<div class="windowHeader"><strong>' + $(this).attr("data-title") + '</strong><span title="Minimize" class="winminimize"><span></span></span><span title="Maximize" class="winmaximize"><span></span><span></span></span><span title="Close" class="winclose">x</span></div>');
 	});
 	
 	$("#minimPanel" + (i-1)).addClass('activeTab');
 	$("#window" + (i-1)).addClass('activeWindow');
 	
 	$( ".wincontent" ).resizable();			// resizable
-	$( ".window" ).draggable({ cancel: ".wincontent", iframeFix: true});	// draggable
+	$( ".window" ).draggable({ cancel: ".wincontent" });	// draggable
 	
 
     $(".window").mousedown(function(){		// active window on top (z-index 1000)
 		makeWindowActive($(this).attr("data-id"));
     });
 	
-
-	$(".winclose").click(function(){
-		var dataId = $(this).parent().parent().attr("data-id");
-		closeWindow(dataId);
-		setTimeout(function() {
-			document.getElementsByClassName('iframe')[dataId].src = document.getElementsByClassName('iframe')[dataId].src;
-		}, 500);
-	});
-	
-	
+    $(".winclose").click(function(){		// close window
+		closeWindwow($(this).parent().parent().attr("data-id"));
+    });	
 
     $(".winminimize").click(function(){		// minimize window
 		minimizeWindow($(this).parent().parent().attr("data-id"));
@@ -188,12 +125,6 @@ $(document).ready(function(){
     $(".openWindow").click(function(){		// open closed window
 		openWindow($(this).attr("data-id"));
     });
-	$(".reloadWindow").click(function(){	
-		var dataId = $(this).attr("data-id");
-		var window = document.getElementsByClassName('wincontent')[dataId].innerHTML;
-        document.getElementsByClassName('wincontent')[dataId].innerHTML = window;
-    });
-
 	
     $(".winmaximize").click(function(){
 		if ($(this).parent().parent().hasClass('fullSizeWindow')) {			// minimize
@@ -209,7 +140,6 @@ $(document).ready(function(){
 			
 			adjustFullScreenSize();
 		}
-	
     });		
 	adjustFullScreenSize();	
 });

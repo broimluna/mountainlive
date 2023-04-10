@@ -110,7 +110,7 @@ function quiloadWeather() {
 					var weatherstatus = "Very cold outside."
 				}
 				else {
-					if (data.main.temp < -4 ) {
+					if (data.main.temp < -0 ) {
 						var weatherstatus = "Cooling down."
 					} 
 				else {
@@ -180,4 +180,47 @@ function quiloadDate() {
     $('#quidate').text(dateString)
 }
 
+function addAppTitleTaskbar() {
+	var checkBox = document.getElementById("AppTitleOnTaskBarPanelChk");
+	
+	if(checkBox.checked == true) {
+	$(".taskbarPanel").each(function() {
+		$(".taskbarPanel").css("fontSize", "17px");
+		$(".taskbarPanel img").addClass("taskpanelimg");
+		document.cookie = "mOSAppTitleOnTskBar=true" +
+		localStorage.setItem("mOSAppTitleOnTskBar", "true")
+	})
+}
+	else {
+		$(".taskbarPanel").each(function() {
+			$(".taskbarPanel").css("fontSize", "0px");
+			$(".taskbarPanel img").removeClass("taskpanelimg");
+			document.cookie = "mOSAppTitleOnTskBar=false" +
+			localStorage.setItem("mOSAppTitleOnTskBar", "false")
+		})
+	}
+}
+function addAppTitleTaskbarStp() {
+	var checkBox = document.getElementById("AppTitleOnTaskBarPanelStp");
+	var checkBoxSettings = document.getElementById("AppTitleOnTaskBarPanelChk");
+	
+	if(checkBox.checked == true) {
+	$(".taskbarPanel").each(function() {
+		$(".taskbarPanel").css("fontSize", "17px");
+		$(".taskbarPanel img").addClass("taskpanelimg");
+		document.cookie = "mOSAppTitleOnTskBar=true" +
+		localStorage.setItem("mOSAppTitleOnTskBar", "true")
+		checkBoxSettings.checked = true
+	})
+}
+	else {
+		$(".taskbarPanel").each(function() {
+			$(".taskbarPanel").css("fontSize", "0px");
+			$(".taskbarPanel img").removeClass("taskpanelimg");
+			document.cookie = "mOSAppTitleOnTskBar=false" +
+			localStorage.setItem("mOSAppTitleOnTskBar", "false")
+			checkBoxSettings.checked = false
+		})
+	}
+}
 
