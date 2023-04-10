@@ -40,19 +40,6 @@ function startupFunctions() {
 	startCookies();
 }
 
-if (/^h/.test(document.location)) {
-	setInterval(function() {
-		// method to be executed;
-		$(".iframe").each(function() {
-			var dataId = $(this).attr("data-id");
-			var datatitle = document.getElementsByClassName("iframe")[dataId].contentDocument.title;
-			document.getElementsByClassName("winheadstrongtitle")[dataId].innerText = datatitle;
-	
-		});
-	  }, 1500);
-  } else {
-	void(0);
-  }
 
 
 function adjustFullScreenSize() {
