@@ -35,8 +35,12 @@
 .tabset {
     display: none;
 }
-#themesrow, #icons {
-    display: none;
+#themesrow {
+    display: block;
 }
 
-
+@media screen and (max-device-width: 768px) {
+    #themesrow {
+       display: none !important;
+    }  
+}

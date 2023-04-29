@@ -1,0 +1,70 @@
+#taskbar {
+    width: auto;
+    border-radius: 0px;
+    bottom: 0;
+}
+#appsmenu {
+    margin: unset !important;
+}
+.window.fullSizeWindow {
+    top: 0 !important;
+}
+
+.quickfeatures {
+    display: none;
+}   
+.centrdAppsTxt, #centrdAppsChk, .betweenapptitlencentrd, #centrdAppsChkSetup {
+    display: none;
+}
+
+
+
+.currenttheme::before {
+    content: "Classic";
+}
+.tasktimedate {
+    display: block !important;
+    top: calc(0px + 13px);
+    position: absolute;
+    right: 0;
+    border: 2px solid transparent;
+    transition: 0.2s;
+}
+#timedateflyout {
+    top: unset !important;
+    bottom: 60px !important;
+}
+.tasktimedate:hover {
+    background: transparent !important;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 2px solid rgba(0, 0, 0, 0.200);
+    height: 15px;
+    border-radius: 5px;
+}
+.tasksearch {
+    position: relative !important;
+    margin: unset !important;
+    display: none;
+    transition: 0.5s;
+    top: unset !important;
+    bottom: 19px !important;
+    height: calc(0% + 32px) !important;
+    visibility: visible;
+    opacity: 1;
+}
+#appsmenu.openedtop, #quickweanews.opened {
+    margin: unset !important;
+    bottom: 60px !important;
+    top: unset !important;
+}
+#quickweanews {
+    top: unset !important;
+    bottom: 60px !important;
+}
+.widgetstask {
+    display: inline-block !important;
+}
+.betweenapptitlentsksrchbox, #taskbarSearchBoxchk, .taskbarSearchBoxTxt {
+    display: inline-block;
+}

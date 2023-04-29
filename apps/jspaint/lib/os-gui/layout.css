@@ -15,6 +15,8 @@ body > .window-titlebar {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+    opacity: 0.8;
+
 }
 .os-window .window-title-area {
 	position: relative;
@@ -39,7 +41,7 @@ body > .window-titlebar {
 }
 .menu-popup {
 	position: absolute;
-	top: 100%;
+	top: 120%;
 	left: 0;
 	z-index: 400000; /* so sub-menu-popups can be visible over the window */
 	box-sizing: border-box;

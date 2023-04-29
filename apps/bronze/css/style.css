@@ -94,3 +94,8 @@ input.gsc-input {
     z-index: 1000;
     top: 4px;
    }
+
+   .bronzeBtns {
+    top: 5px;
+    position: relative;
+}

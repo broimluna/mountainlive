@@ -111,6 +111,24 @@ reader.onloadend = function() {
 		$('#abranding a').css('color', '');
 		$('button').css('border-color', '');
 		$('.checkBox').css('color', '');
+		$('input').css('border-color', '');
+	  }
+
+	  function tskSearchBox() {
+		var checkbox = document.getElementById("taskbarSearchBoxchk")
+		
+		if (checkbox.checked == true) {
+			$(".tasksearch").css('display', 'inline');
+			localStorage.setItem("mOSSrchBoxTskbar", "true");
+			document.cookie("mOSSrchBoxTskbar=true");
+
+		}
+		else {
+			$(".tasksearch").css('display', '');
+			localStorage.setItem("mOSSrchBoxTskbar", "false");
+			document.cookie("mOSSrchBoxTskbar=false");
+		}
+
 	  }
 	  
 

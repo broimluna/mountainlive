@@ -6,10 +6,10 @@
    overflow: hidden;
    font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
    font-weight: 100;
-   color: black
+   color: black;
    margin: 0;
    padding: 0;
-   background: white
+   background: transparent;
    -webkit-touch-callout: none;
    -webkit-user-select: none;
    -khtml-user-select: none;
@@ -36,6 +36,11 @@
     position:relative;
     z-index: 100;
   }
+  @media screen and (max-device-width: 768px) {
+  .header {
+    width: calc(0% + 374px) !important;
+  }
+}
   
   .header h1 {
     margin: 0;
