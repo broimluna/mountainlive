@@ -50,6 +50,25 @@ function appSearch() {
 	document.getElementById("appsmenu").classList.add("opened");
 
 }
+function taskSearch() {
+	var input, filter, ul, li, a, i, txtValue;
+	input = document.getElementById("taskSearch");
+	filter = input.value.toUpperCase();
+	ul = document.getElementById("appicons");
+	li = ul.getElementsByTagName("li");
+	for (i = 0; i < li.length; i++) {
+			a = li[i].getElementsByTagName("a")[0];
+			txtValue = a.textContent || a.innerText;
+			if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					li[i].style.display = "";
+			} else {
+					li[i].style.display = "none";
+			}
+	}
+	document.getElementById("appsmenu").classList.add("openedtop");
+
+}
+
 
 
 function appstoggle() {
@@ -84,6 +103,8 @@ function startDate(){
     var date = hour + ":" + minute + " • " + m + " " + d + ", " + y
     document.getElementsByClassName("timedatetext")[0].innerText = date;
     document.getElementsByClassName("timedatetext")[0].textContent = date;
+	document.getElementsByClassName("tasktimedate")[0].innerText = date;
+    document.getElementsByClassName("tasktimedate")[0].textContent = date;
 	var quidate = hour + ":" + minute + ":" + seconds + " on " + m + " " + d + ", " + y
 	document.getElementById("quitime").innerText = quidate;
     document.getElementById("quitime").textContent = quidate;
@@ -134,9 +155,14 @@ function quiloadWeather() {
 					if (data.main.temp < 20 ) {
 						var weatherstatus = "Hot outside."
 					}
+					else {
+						if (data.main.temp < 30 ) {
+							var weatherstatus = "Getting even hotter."
+						}
+						
 				
 				else {
-					if (data.main.temp <= 35 ) {
+					if (data.main.temp < 35 ) {
 						var weatherstatus = "Hot outside, go in a pool!"
 					}
 				}
@@ -146,26 +172,27 @@ function quiloadWeather() {
 		}
 	} 
 }
-                weather.text(
-                    Math.round(data.main.temp) + '°C, ' + weatherstatus
+}
+                weather.html(
+                    "<a><img src='system/img/icons/widgets.png' style='vertical-align: middle;' width='32' height='32'></img></a>" + Math.round(data.main.temp) + '°C, ' + weatherstatus
                 )
-				quiweather.text(
-                    Math.round(data.main.temp) + '°C, ' + weatherstatus
+				quiweather.html(
+                 Math.round(data.main.temp) + '°C, ' + weatherstatus
                 )
             }
         )
     }
 
     function error() {
-		weather.text('Unable to retrieve your location for weather')
-		quiweatherfull.text('Unable to retrieve your location for weather')
+		weather.html("<a><img src='system/img/icons/widgets.png' style='vertical-align: middle;' width='32' height='32'></img></a>" + 'Unable to retrieve your location for weather')
+		quiweatherfull.html('Unable to retrieve your location for weather')
 	}
 
 
     navigator.geolocation.getCurrentPosition(success, error)
 
-    weather.text('Fetching current weather...')
-	quiweather.text('fetching current weather...')
+    weather.html("<a><img src='system/img/icons/widgets.png' style='vertical-align: middle;' width='32' height='32'></img></a>" + 'Fetching current weather...')
+	quiweather.html('fetching current weather...')
 	
 }
 

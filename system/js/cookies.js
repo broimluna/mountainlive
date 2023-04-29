@@ -25,14 +25,24 @@ function switch_style ( css_title )
     }
     set_cookie_style( style_cookie_name, css_title,
       style_cookie_duration, style_domain );
+
+	localStorage.setItem(style_cookie_name, css_title)
   }
 }
 function set_style_from_cookie()
 {
   var css_title = get_cookie_style( style_cookie_name );
+
   if (css_title.length) {
     switch_style( css_title );
   }
+
+  var css_title_ls = localStorage.getItem( style_cookie_name )
+
+  if (localStorage.hasOwnProperty('mOSTheme') != -1)  {
+	switch_style( css_title_ls );
+  }
+
 }
 function set_cookie_style ( cookie_name, cookie_value,
     lifespan_in_days, valid_domain )
@@ -141,7 +151,14 @@ function createCookie(cname,cvalue,exdays) {
 	$('#abranding a').css('color', cpcolor);
 	$('button').css('border-color', cpcolor);
 	$('.checkBox').css('color', cpcolor);
-	
+	$('input').css('border-color', cpcolor);
+  }
+  function checkTskBarSrchIconCook() {
+	if (document.cookie.indexOf("mOSSrchBoxTskbar=true") != -1 || localStorage.getItem('mOSSrchBoxTskbar') === "true")  {
+		var checkbox = document.getElementById("taskbarSearchBoxchk")
+		$(".tasksearch").css('display', 'inline');
+		checkbox.checked = true;
+	}
   }
   
   function defaultColorsCookies() {
@@ -191,9 +208,11 @@ function createCookie(cname,cvalue,exdays) {
 
   function startCookies() {
 	mOSLeftBarCookie();
+	checkTskBarSrchIconCook();
 	checkAppTitleOnTskBarCook();
 	setColorCookie();
 	CheckFTUEandUsername();
+	set_style_from_cookie();
 	checkBGCookie();
 
   }
@@ -213,6 +232,8 @@ function createCookie(cname,cvalue,exdays) {
 	localStorage.removeItem("mOSBG");
 	eraseCookie("mOSAppTitleOnTskBar");
 	localStorage.removeItem("mOSAppTitleOnTskBar");
+	eraseCookie("mOSTheme");
+	localStorage.removeItem("mOSTheme");
 
 	alert("Cookies have been deleted.")
   }

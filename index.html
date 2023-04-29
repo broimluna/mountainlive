@@ -14,6 +14,10 @@
 	<script src="system/js/screensaver.js"></script>
 	<script src="system/js/taskbar.js"></script>								
 	<link rel="stylesheet" type="text/css" href="system/css/themes/default.css" />
+	<link rel="alternate stylesheet 2" type="text/css" title="classic" href="system/css/themes/classic.css" />
+	<link rel="alternate stylesheet 3" type="text/css" title="mobile" href="system/css/themes/mobile.css" />
+	<link rel="stylesheet" media="screen and (max-device-width: 768px)" href="system/css/themes/mobile.css" />
+
 
 	<title>mountainOS</title>
 </head>
@@ -102,9 +106,8 @@
 				<div id="themesrow">
 					<h1 id="settingsh1" class="themestext">Themes</h1>
 					<button id="settingsbutton" onclick="switch_style('default');return false;" name="Default Theme" value="Default Theme">Default</button>
-					<button id="settingsbutton" onclick="switch_style('theme3');return false;" name="Theme 3" value="Theme 3">Classic</button>
-					<button id="settingsbutton" onclick="switch_style('theme2');return false;" name="Theme 2" value="Theme 2">Metro</button>
-					<button id="settingsbutton" onclick="switch_style('theme1');return false;" name="Theme 1" value="Theme 1">prismOS</button>
+					<button id="settingsbutton" onclick="switch_style('classic');return false;" name="Classic Theme" value="Theme Classic">Classic</button>
+					<button id="settingsbutton" onclick="switch_style('mobile');return false;" name="Mobile Theme" value="Theme Mobile">Mobile</button>
 					<hr id="settingshr" class="themeshr">
 
 				</div>
@@ -129,8 +132,10 @@
 					<hr id="settingshr">
 					<h1 id="settingsh1" class="tskbrtab">Taskbar</h1>
 					<input type="checkbox" onclick="centeredApps()" id="centrdAppsChk" class="checkBox"><a class="centrdAppsTxt">Set the taskbar to the left</a></input>
-					<br>
-					<input type="checkbox" onclick="addAppTitleTaskbar()" id="AppTitleOnTaskBarPanelChk" class="checkBox"><a class="addAppTitleTaskbarTxt">Add app title to taskbar icons.</a></input>
+					<br class="betweenapptitlencentrd">
+					<input type="checkbox" onclick="addAppTitleTaskbar()" id="AppTitleOnTaskBarPanelChk" class="checkBox"><a class="addAppTitleTaskbarTxt">Apply app titles to taskbar icons.</a></input>
+					<br class="betweenapptitlentsksrchbox">
+					<input type="checkbox" onclick="tskSearchBox()" id="taskbarSearchBoxchk" class="checkBox"><a class="taskbarSearchBoxTxt">Enable search on the taskbar.</a></input>
 				    </div>
 
 					<div id="UserProfile" data-title="User Profile" class="tab" style="display:none;overflow: hidden;">
@@ -168,11 +173,13 @@
 					<hr id="settingshr">
 					<a>Kernel: <a class="kernelver"></a></a>
 					<br>
-					<a><a class="releasever"></a> Release (Build: <a class="buildnumb"></a>)</a>
+					<a>June 2023 Release (Build: <a class="buildnumb"></a>)</a>
 					<br>		
 					<hr id="settingshr">
 					<a>broimluna - 2023</a>
 					<br>
+					<br>
+					<p>Current theme: <a class="currenttheme"></a></p>
 					<p>Based on 'Windows' Template from <a target="blank" id="htmltemp" href="https://html5-templates.com">html5-templates.com</a></p>
 					<hr>
 					<a>Click the "Reset cookies" to reset your settings.</a>
@@ -223,20 +230,18 @@
 			
 		<div id="taskbar">
 			<a id="appsBtn" onclick="appstoggle()"><img src='system/img/icons/apps.png' width='46' height='46'></a>
+			<a id="appsBtn" class="widgetstask" onclick="quickweanewstoggle()"><img src='system/img/icons/widgets.png' width='46' height='46'></a>
+			<a class="tasktimedate" title="Click here to see the date and time." onclick="timedatetoggle();"></a>
+			<input type="text" id="taskSearch" class="tasksearch" onclick="document.getElementById('appsmenu').classList.toggle('openedtop');" onkeyup="taskSearch()" placeholder="Click here to search for an app" title="Click here to search for an app">
+
 		</div>
+
 		<div class="quickfeatures">
 			<a class="timedatetext" title="Click here to see the date and time." onclick="timedatetoggle();"></a>
 			<a class="quickweanewsap" title="Click here to access weather and news." onclick="quickweanewstoggle();"></a>
+			<input type="text" id="taskSearch" onclick="document.getElementById('appsmenu').classList.toggle('openedtop');" onkeyup="taskSearch()" placeholder="Click here to search for an app" title="Click here to search for an app">
 		 </div>
 		
-		<div id="icons">
-		  <center>
-			<a class="openWindow" data-id="0"><img border="0" alt="" src="system/img/icons/paint.png" width="32" height="32"><br>Paint</a>  
-			<a class="openWindow" data-id="1"><img border="0" alt="" src="system/img/icons/notepad.png" width="32" height="32"><br>Notepad</a>
-			<a class="openWindow" data-id="2"><img border="0" alt="" src="system/img/icons/calendar.png" width="32" height="32"><br>Calendar</a>
-			<a class="openWindow" data-id="3"><img border="0" alt="" src="system/img/icons/calculator.png" width="32" height="32"><br>Calculator</a>
-		  </center>      
-		</div>
 		
 		
 		<div id="appsmenu">
@@ -262,6 +267,8 @@
 			</div>
 		</div>
 
+		<a id="watermark"></a>
+
 		<div id="quickweanews">
 			<h1>Welcome back!</h1>
 			<h2 class="quiweatherfull">It is currently <span id="quiweather"></span></h2>
@@ -276,12 +283,12 @@
 		</div>
 
 			<div id="timedateflyout">
-				<h1>The time is <span id="quitime"></span></h2>
+				<h1 style="top: 3px; position: relative;">The time is <span id="quitime"></span></h2>
 				<iframe src="apps/calendar/index.html"></iframe>
 			   <hr> 
 			</div>
-
-            <div id="firstexperience">
+          <div id="firstexperience">
+            <div id="firstexperiencewindow">
              <h1>First-time User Experience</h1>
 			 <br>
 			 <h2>Welcome to mountainOS.<br>Let's set up your account and user interface.</h2>
@@ -310,13 +317,13 @@
 			 <br>
 			 <button onclick="finishFTUE()">Finish setup.</button>
 			</div>
+		  </div>
 
 			  
 
 
 
 	</div>
-	<a id="watermark"></a>
 
 	<div id="startup">
 		<div><img id="startuplogo" src="system/img/systemlogo.png"></div>	
@@ -335,6 +342,7 @@
 		</ul>
 		</div>
 </body>
+
 <script>
 	$('#colorpicker').on('change', function() {
     var cpcolor = this.value;
@@ -348,6 +356,7 @@
 	$('#htmltemp').css('color', cpcolor);
 	$('#watermark').css('color', cpcolor);
 	$('#abranding a').css('color', cpcolor);
+	$('input').css('border-color', cpcolor);
 	$('button').css('border-color', cpcolor);
 	$('.checkBox').css('color', cpcolor);
 	document.cookie = "mOSColor=" + cpcolor;
@@ -367,6 +376,7 @@ $('#colorpickersetup').on('change', function() {
 	$('#abranding a').css('color', cpcolor);
 	$('button').css('border-color', cpcolor);
 	$('.checkBox').css('color', cpcolor);
+	$('input').css('border-color', cpcolor);
 	document.cookie = "mOSColor=" + cpcolor;
 	localStorage.setItem("mOSColor", cpcolor)
 })

@@ -1,5 +1,5 @@
-var kernelver = "3";
-var buildnumb = "6000";
+var kernelver = "4.0";
+var buildnumb = "7600";
 var iframei = 0
 var i = 0,
 minimizedWidth = new Array,
@@ -18,13 +18,6 @@ id;
 		//Build write
 		var buildnumber = document.getElementsByClassName("buildnumb")[0];
 		buildnumber.innerText = buildnumb;
-		//Release Write
-		const lastUpdated = new Date(document.lastModified);
-		const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-		var month = monthNames[lastUpdated.getMonth()];
-		var year = lastUpdated.getFullYear();
-		var releaseversion = document.getElementsByClassName("releasever")[0];
-		releaseversion.innerText = month + " " + year;
 		//Watermark Stamp
 		let nLastModif = document.lastModified;
 		var watermark = document.getElementById("watermark")
@@ -53,6 +46,7 @@ if (/^h/.test(document.location)) {
   } else {
 	void(0);
   }
+
 
 
 
@@ -150,6 +144,7 @@ $(document).ready(function(){
 	$("#window" + (i-1)).addClass('activeWindow');
 	
 	$( ".wincontent" ).resizable();			// resizable
+	
 	$( ".window" ).draggable({ cancel: ".wincontent", iframeFix: true});	// draggable
 	
 
