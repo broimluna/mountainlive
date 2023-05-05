@@ -1,0 +1,54 @@
+/*
+.tab {
+    padding: 10px;
+    height: 70%;
+    overflow-y: scroll;
+    margin: -15px 0px;
+}
+#tabsettings {
+    padding: 10px 10px;
+}
+#tabsettings button {
+    margin: 0px -1px;
+}*/
+
+.tab {
+    padding: 10px;
+    top: 65px;
+    position: fixed;
+    width: calc(100% - 134px);
+    height: 93%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin: -60px 114px;
+    border-left: 2px solid white;
+}
+#tabsettings {
+    padding: 10px 0px;
+    width: 0%;
+    height: 10%;
+}
+#tabsettings button {
+    margin: 2px -1px;
+    white-space: nowrap;
+}
+.tabset {
+    display: none;
+}
+#themesrow {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: flex;
+    width: 99%;
+    height: 36px;
+    position: static;
+}
+#themesrow button {
+    margin: 0px 2px;
+}
+
+@media screen and (max-device-width: 768px) {
+    #themesrow {
+       display: none !important;
+    }  
+}
