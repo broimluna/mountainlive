@@ -61,15 +61,30 @@
     display: none !important;
 }
 #firstexperiencewindow {
-    z-index: 999998;
     height: 100%;
     width: 100%;
     left: 0;
     right: 0;
     top: 0;
     position: absolute;
-    background: url(../../img/setupbg.png);
+    margin-top: unset !important;
     border-radius: 0px;
     border: 0px solid transparent;
 }
+.circle1, .circle2, .circle3 {
+    top: 45vh;
+}
 
+@media screen and (max-device-width: 768px)  {
+    #userProfile {
+        right: unset !important;
+    }
+    #userProfile hr {
+        display: none !important;
+    }
+    #userProfile div {
+        min-width: calc(0px + 146px) !important;
+    }
+
+    
+}

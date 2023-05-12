@@ -3,8 +3,12 @@
     border-radius: 0px;
     bottom: 0;
 }
-#appsmenu {
+#appsmenu, #quickweanews {
     margin: unset !important;
+    bottom: 50px !important;
+    left: -2px;
+    border-radius: 0px;
+    border-top-right-radius: 16px;
 }
 .window.fullSizeWindow {
     top: 0 !important;
@@ -17,7 +21,13 @@
     display: none;
 }
 
-
+#timedateflyout {
+    margin: unset !important;
+    bottom: 50px !important;
+    right: -2px !important;
+    border-radius: 0px;
+    border-top-left-radius: 16px;
+}
 
 .currenttheme::before {
     content: "Classic";
@@ -32,7 +42,7 @@
 }
 #timedateflyout {
     top: unset !important;
-    bottom: 60px !important;
+    bottom: 60px;
 }
 .tasktimedate:hover {
     background: transparent !important;
@@ -53,14 +63,15 @@
     visibility: visible;
     opacity: 1;
 }
+
 #appsmenu.openedtop, #quickweanews.opened {
     margin: unset !important;
-    bottom: 60px !important;
+    bottom: 50px !important;
     top: unset !important;
 }
 #quickweanews {
     top: unset !important;
-    bottom: 60px !important;
+    bottom: 60px;
 }
 .widgetstask {
     display: inline-block !important;

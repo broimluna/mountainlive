@@ -44,7 +44,10 @@ function deactivatefull() {
 
 function finishFTUE() {
 	var usrInpt = document.getElementById("usrinpt").value;
-	$("#firstexperience").fadeOut(200);
+	$("#firstexperiencewindow").fadeOut(200);
+	$(".backgroundftue").fadeOut(200);
+	document.getElementsByClassName("FTUEtext")[0].innerText = "Let's begin.";
+	setTimeout(function() {$("#firstexperience").fadeOut(200);}, 2000);
 	if ( $('#usrinpt').val() === "" ) 
 	{
 		document.cookie = "FTUEStatus=completed"

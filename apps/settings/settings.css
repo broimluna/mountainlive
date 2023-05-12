@@ -36,7 +36,15 @@
     display: none;
 }
 #themesrow {
-    display: block;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: flex;
+    width: 99%;
+    height: 36px;
+    position: static;
+}
+#themesrow button {
+    margin: 0px 2px;
 }
 
 @media screen and (max-device-width: 768px) {

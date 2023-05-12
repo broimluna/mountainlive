@@ -190,6 +190,56 @@ button {
     0% { opacity: 1; }
     100% { opacity: 0; }
   }
+  @keyframes circle1Path {
+0%{
+transform: translate(0vw, 0vh);
+width:30vw;
+height:30vw;
+}
+100%{
+transform: translate(0vw, -35vh);
+width:80vw;
+height:80vw;
+}
+}
+@keyframes circle2Path {
+0%{
+transform: translate(0vw, 0vh);
+width:20vw;
+height:20vw;
+}
+100%{
+transform: translate(-45vw, -40vh);
+width:80vw;
+height:80vw;
+}
+}
+@keyframes circle3Path {
+0%{
+transform: translate(0vw, 0vh);
+width:20vw;
+height:20vw;
+}
+100%{
+transform: translate(-55vw, -80vh);
+width:120vw;
+height:120vw;
+}
+}
+@keyframes fadeIn {
+0%{
+opacity: 0;
+}
+}
+@keyframes fadeCircleIn{
+0%{
+opacity:0;
+}
+100%{
+opacity: 1;
+}
+}
+
   
   
   
@@ -308,6 +358,9 @@ iframe {
 }
 .winheadimg {
     margin: 1px 3px;
+}
+.winheadstrongtitle {
+    margin: 0 0px 0px 2px;
 }
 .wincontent {
     border: 2px solid transparent;
@@ -833,21 +886,25 @@ border-radius: 4px;
     display: none;
     position: absolute;
     backdrop-filter: blur(5px);
-    background-color: transparent;
+    background-color: black;
 }
 
 #firstexperiencewindow {
     z-index: 999998;
     height: 88%;
     width: 88%;
+    position: relative;
     left: 0;
     right: 0;
     margin: 0 auto;
-    top: calc(0px + 46px);
-    position: absolute;
-    background: url(../../img/setupbg.png);
+    top: calc(0% + 10%);
+    /* left: 50%; */
+    margin-top: -50px;
+    /* margin-left: -50px; */
+    backdrop-filter: blur(23px);
+    background: #ffffff20;
     border-radius: 10px;
-    border: 2px solid rgba(0, 0, 0, 0.200);
+    border: 2px solid rgba(109, 109, 109, 0.5);
 }
 
 #firstexperience h1 {
@@ -866,6 +923,46 @@ border-radius: 4px;
 #firstexperience input, #firstexperience .centrdAppsTxt, #firstexperience button, #firstexperience a {
     left: 10px;
     position: relative;
+}
+
+.FTUEtext {
+    left: 0;
+    right: 0;
+    line-height: 200px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: -100px;
+    font-size: 70px;
+    position: absolute !important;
+    top: 50%;
+    width: 100%;
+}
+
+.circle1{
+    left:30vw;
+    top:25vh;
+    position: absolute;
+    animation: circle1Path 12s infinite, fadeCircleIn 1332ms ease-out;
+    animation-direction: alternate;
+    border-radius: 100vw;
+    background: radial-gradient(50% 50% at 50% 50%, rgb(255 255 255 / 30%) 15.62%, rgb(0 0 0 / 15%) 100%);
+}
+.circle2{
+    left:45vw;
+    top:30vh;
+    position: absolute;
+    animation: circle2Path 11.5s infinite, fadeCircleIn 1332ms ease-out;
+    animation-direction: alternate;
+    border-radius: 100vw;
+    background: radial-gradient(50% 50% at 50% 50%, rgb(255 255 255 / 30%) 15.62%, rgb(0 0 0 / 15%) 100%);
+}
+.circle3{
+    left:35vw;
+    top:30vh;position: absolute;
+    animation: circle3Path 15s infinite, fadeCircleIn 1332ms ease-out;
+    animation-direction: alternate;
+    border-radius: 100vw;
+    background: radial-gradient(50% 50% at 50% 50%, rgb(255 255 255 / 50%) 15.62%, rgb(0 0 0 / 15%) 100%);
 }
 
 .confirmButton {
@@ -984,6 +1081,9 @@ border-radius: 4px;
         #window9.fullSizeWindow > .wincontent {
             min-width: 99.5% !important;
             min-height: 88% !important
+        }
+        #window9 {
+            z-index: 999999999999 !important;
         }
 
         #window10 .wincontent {

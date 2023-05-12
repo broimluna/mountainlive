@@ -15,7 +15,8 @@
 	<script src="system/js/taskbar.js"></script>								
 	<link rel="stylesheet" type="text/css" href="system/css/themes/default.css" />
 	<link rel="alternate stylesheet 2" type="text/css" title="classic" href="system/css/themes/classic.css" />
-	<link rel="alternate stylesheet 3" type="text/css" title="mobile" href="system/css/themes/mobile.css" />
+	<link rel="alternate stylesheet 3" type="text/css" title="avaos" href="system/css/themes/avaos.css" />
+	<link rel="alternate stylesheet 4" type="text/css" title="mobile" href="system/css/themes/mobile.css" />
 	<link rel="stylesheet" media="screen and (max-device-width: 768px)" href="system/css/themes/mobile.css" />
 
 
@@ -103,14 +104,15 @@
 				<hr id="settingshr" class="tabset">
 		
 			<div id="Customization" class="tab">
+				<h1 id="settingsh1" class="themestext">Themes</h1>
 				<div id="themesrow">
-					<h1 id="settingsh1" class="themestext">Themes</h1>
 					<button id="settingsbutton" onclick="switch_style('default');return false;" name="Default Theme" value="Default Theme">Default</button>
 					<button id="settingsbutton" onclick="switch_style('classic');return false;" name="Classic Theme" value="Theme Classic">Classic</button>
+					<button id="settingsbutton" onclick="switch_style('avaos');return false;" name="AvalancheOS Theme" value="AvalancheOS Theme">AvalancheOS</button>
 					<button id="settingsbutton" onclick="switch_style('mobile');return false;" name="Mobile Theme" value="Theme Mobile">Mobile</button>
 					<hr id="settingshr" class="themeshr">
-
 				</div>
+				<br>
 					<h1 id="settingsh1">Background</h1>
 					<input id="inputbtn" class="wppicker" type="file" accept="image/*" onchange="changeBG(event)">
 					<br>
@@ -133,7 +135,7 @@
 					<h1 id="settingsh1" class="tskbrtab">Taskbar</h1>
 					<input type="checkbox" onclick="centeredApps()" id="centrdAppsChk" class="checkBox"><a class="centrdAppsTxt">Set the taskbar to the left</a></input>
 					<br class="betweenapptitlencentrd">
-					<input type="checkbox" onclick="addAppTitleTaskbar()" id="AppTitleOnTaskBarPanelChk" class="checkBox"><a class="addAppTitleTaskbarTxt">Apply app titles to taskbar icons.</a></input>
+					<input type="checkbox" onclick="addAppTitleTaskbar()" id="AppTitleOnTaskBarPanelChk" class="checkBox"><a class="addAppTitleTaskbarTxt">Add app titles to taskbar icons.</a></input>
 					<br class="betweenapptitlentsksrchbox">
 					<input type="checkbox" onclick="tskSearchBox()" id="taskbarSearchBoxchk" class="checkBox"><a class="taskbarSearchBoxTxt">Enable search on the taskbar.</a></input>
 				    </div>
@@ -173,7 +175,7 @@
 					<hr id="settingshr">
 					<a>Kernel: <a class="kernelver"></a></a>
 					<br>
-					<a>June 2023 Release (Build: <a class="buildnumb"></a>)</a>
+					<a>Dev Release (Build: <a class="buildnumb"></a>)</a>
 					<br>		
 					<hr id="settingshr">
 					<a>broimluna - 2023</a>
@@ -181,7 +183,6 @@
 					<br>
 					<p>Current theme: <a class="currenttheme"></a></p>
 					<p>Based on 'Windows' Template from <a target="blank" id="htmltemp" href="https://html5-templates.com">html5-templates.com</a></p>
-					<a href="8000/index.html" target="_blank"><button>Try Build 8000</button></a>
 					<hr>
 					<a>Click the "Reset cookies" to reset your settings.</a>
 					<br>
@@ -289,6 +290,14 @@
 			   <hr> 
 			</div>
           <div id="firstexperience">
+			<a class="FTUEtext"></a>
+			<div class="backgroundftue">
+			<div class="circles">
+				<div class="circle1"></div>
+				<div class="circle2"></div>
+				<div class="circle3"></div>
+			</div>
+		</div>
             <div id="firstexperiencewindow">
              <h1>First-time User Experience</h1>
 			 <br>
