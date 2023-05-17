@@ -20,7 +20,7 @@ id;
 		buildnumber.innerText = buildnumb;
 		//Watermark Stamp
 		let nLastModif = document.lastModified;
-		var watermark = document.getElementById("watermark")
+		var watermark = document.getElementById("waterark")
 		watermark.innerText = "Luna's mountainOS\n Build " + buildnumb + "\nCompiled on " + nLastModif;
 		
 })

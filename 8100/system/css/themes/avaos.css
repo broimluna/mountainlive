@@ -1,0 +1,122 @@
+::placeholder {
+    color: black;
+}
+
+
+a, p, h1, h2, h3, li, div, input, strong, button, textarea, .menus {
+    color: black !important;
+}
+
+#taskbar {
+    width: 99% !important ;
+    border-radius: 6px !important;
+    bottom: 10px !important;
+    margin: 0 auto !important;
+    background: #d6d6d69f;
+}
+#appsmenu, #quickweanews {
+    margin: unset !important;
+    bottom: 68px !important;
+    left: 5px;
+    border-radius: 6px;
+    background: #d6d6d69f;   
+}
+.window, .context-menu {
+    background: #d6d6d69f;   
+}
+.window.fullSizeWindow {
+    top: 0 !important;
+}
+
+.quickfeatures, .widgetstask {
+    display: none !important;
+}   
+.centrdAppsTxt, #centrdAppsChk, .betweenapptitlencentrd, #centrdAppsChkSetup {
+    display: none;
+}
+
+#taskSearch {
+    width: calc(0% + 180px) !important;
+}
+
+#timedateflyout {
+    margin: unset !important;
+    bottom: 68px !important;
+    right: 5px !important;
+    border-radius: 6px;
+    background: #d6d6d69f;
+}
+
+.currenttheme::before {
+    content: "AvalancheOS";
+}
+.tasktimedate {
+    display: block !important;
+    top: calc(0px + 13px);
+    position: absolute;
+    right: 0;
+    border: 2px solid transparent;
+    transition: 0.2s;
+}
+#timedateflyout {
+    top: unset !important;
+    bottom: 60px;
+}
+.tasktimedate:hover {
+    background: transparent !important;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 2px solid rgba(0, 0, 0, 0.200);
+    height: 15px;
+    border-radius: 5px;
+}
+.tasksearch {
+    position: relative !important;
+    margin: unset !important;
+    display: none;
+    transition: 0.5s;
+    top: unset !important;
+    bottom: 19px !important;
+    height: calc(0% + 32px) !important;
+    visibility: visible;
+    opacity: 1;
+}
+#taskSearch, #taskSearch:hover, #taskSearch:focus {
+    background-image: url("../../img/icons/tbSearchD.png") !important
+
+}
+
+#appsmenu.openedtop, #quickweanews.opened {
+    margin: unset !important;
+    bottom: 68px !important;
+    top: unset !important;
+}
+#quickweanews {
+    top: unset !important;
+    bottom: 60px;
+}
+.betweenapptitlentsksrchbox, #taskbarSearchBoxchk, .taskbarSearchBoxTxt {
+    display: inline-block;
+}
+
+#appSearch {
+    display: none;
+}
+#appicons {
+    margin: 0 0 7px 0;
+    height: 88%;
+}
+
+.window {
+    position: absolute;
+    border: 2px solid #000;
+    z-index: 1000;
+    background: #d6d6d660;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+.windowHeader > span {
+    border-radius: 14px;
+}
