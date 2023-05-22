@@ -915,6 +915,7 @@ iframe {
 #firstexperience h1 {
         left: 10px;
         font-size: xx-large;
+        color: white !important;
         top: 5px;
         position: relative;
 }
@@ -922,13 +923,19 @@ iframe {
     left: 10px;
     font-size: x-large;
     top: 0px;
+    color: white !important;
     position: relative;
 }
 
 #firstexperience input, #firstexperience .centrdAppsTxt, #firstexperience button, #firstexperience a {
     left: 10px;
     position: relative;
+    color: white !important;
 }
+#firstexperiencewindow > #usrinpt::placeholder {
+   color: white !important;
+}
+
 
 .FTUEtext {
     left: 0;
