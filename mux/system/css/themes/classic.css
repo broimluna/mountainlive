@@ -1,8 +1,19 @@
+a, p, h1, h2, h3, li, div, input, strong, button, textarea, .menus {
+    color: white !important;
+    font-family: Segoe UI !important;
+}
+::placeholder {
+    color: white;
+}
 #taskbar {
     width: auto;
     border-radius: 0px;
     bottom: 0;
     text-align: left !important;
+    background: transparent;
+}
+.window {
+    background-color: transparent;
 }
 #appsmenu, #quickweanews {
     margin: unset !important;
@@ -10,6 +21,7 @@
     left: -2px;
     border-radius: 0px;
     border-top-right-radius: 16px;
+    background-color: transparent;
 }
 .window.fullSizeWindow {
     top: 0 !important;
@@ -17,6 +29,9 @@
 
 .quickweanewsap {
     display: none;
+}
+.context-menu {
+    background: transparent;
 }   
 
 #timedateflyout {

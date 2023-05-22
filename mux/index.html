@@ -16,8 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="system/css/themes/default.css" />
 	<link rel="alternate stylesheet 2" type="text/css" title="classic" href="system/css/themes/classic.css" />
 	<link rel="alternate stylesheet 3" type="text/css" title="mobile" href="system/css/themes/mobile.css" />
-	<link rel="alternate stylesheet 4" type="text/css" title="avaos" href="system/css/themes/avaos.css" />
-	<link rel="alternate stylesheet 5" type="text/css" title="dark" href="system/css/themes/dark.css" />
+	<link rel="alternate stylesheet 4" type="text/css" title="dark" href="system/css/themes/dark.css" />
 	<link rel="stylesheet" media="screen and (max-device-width: 768px)" href="system/css/themes/mobile.css" />
 
 
@@ -110,7 +109,6 @@
 					<button id="settingsbutton" onclick="switch_style('default');return false;" name="Default Theme" value="Default Theme">Default</button>
 					<button id="settingsbutton" onclick="switch_style('dark');return false;" name="Dark Theme" value="Dark Mobile">Dark</button>
 					<button id="settingsbutton" onclick="switch_style('classic');return false;" name="Classic Theme" value="Theme Classic">Classic</button>
-					<button id="settingsbutton" onclick="switch_style('avaos');return false;" name="AvalancheOS Theme" value="Theme AvalancheOS">AvalancheOS</button>
 					<button id="settingsbutton" onclick="switch_style('mobile');return false;" name="Mobile Theme" value="Theme Mobile">Mobile</button>
 					<hr id="settingshr" class="themeshr">
 				</div>
@@ -182,13 +180,15 @@
 					<p>Current theme: <a class="currenttheme"></a></p>
 					<p>Based on 'Windows' Template from <a target="blank" id="htmltemp" href="https://html5-templates.com">html5-templates.com</a></p>
 					<hr>
-					<a>Click the "Reset cookies" to reset your settings.</a>
+					<a>Click the "Reset mountainOS" to reset your settings.</a>
 					<br>
 					<br>
+					<strong>
 					<a>This will include your wallpaper, profile picture and username, color settings and taskbar settings.</a>
 					<br>
+				</strong>
 					<br>
-					<button onclick="resetAllCookies();">Reset cookies</button>
+					<button onclick="resetAllCookies();"><strong>Reset mountainOS</strong></button>
 				</div>
 			</div>
 			<div class="window closed" data-html="true" data-title="<strong class='winheadstrongtitle'>Terminal</strong>" taskbar-title="<strong>Terminal</strong>" taskicon="<img src='system/img/icons/terminal.png'  width='42' height='42'>" headicon="<img src='system/img/icons/terminal.png' class='winheadimg' width='26' height='26'>">
@@ -217,7 +217,7 @@
 				</div>		
 			</div>
 
-			<div class="window closed" data-html="true" data-title="<strong class='winheadstrongtitle'>mountainOS</strong>" taskbar-title="<strong>mountainOS</strong>" taskicon="<img src='system/img/systemlogo.png'  width='42' height='44'>" headicon="<img src='system/img/systemlogo.png' class='winheadimg' width='28' height='30'>">
+			<div class="window closed" data-html="true" data-title="<strong class='winheadstrongtitle'>mountainOS</strong>" taskbar-title="<strong>mountainOS</strong>" taskicon="<img src='system/img/systemlogo.png'  width='42' height='44'>" headicon="<img src='system/img/systemlogo.png' class='winheadimg notiwindow' width='28' height='30'>">
 				<a class="alertxt"></a>
 				<br>
 				<br>
@@ -310,9 +310,6 @@
 				 <br>
 				 <br>
 				 <input type="color" id="colorpickersetup"><a>Choose your color</a></input>
-				 <br>
-				 <br>
-				 <input type="checkbox" onclick="centeredAppsStp()" id="centrdAppsChkSetup" class="checkBox"><a class="centrdAppsTxt">Set the taskbar to the left</a></input>
 				 <br>
 				 <br>
 				 <input type="checkbox" onclick="addAppTitleTaskbarStp()" id="AppTitleOnTaskBarPanelStp" class="checkBox"><a class="addAppTitleTaskbarTxt">Add app title to taskbar icons.</a></input>

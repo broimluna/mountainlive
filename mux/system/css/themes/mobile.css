@@ -52,6 +52,7 @@
     border-top-left-radius: 5px !important;
     border-bottom-right-radius: 0px !important;
     border-bottom-left-radius: 0px !important;
+    width: fit-content !important;
 }
 .taskbarPanel img.taskpanelimg {
     margin: 0px 0px 0px 0px !important;
@@ -75,19 +76,11 @@
     top: 45vh;
 }
 
-@media screen and (max-device-width: 768px)  {
-    #userProfile {
-        right: unset !important;
-    }
-    #userProfile hr {
-        display: none !important;
-    }
-    #userProfile div {
-        min-width: calc(0px + 146px) !important;
-    }
 
-    
-}
 #window11 {
     bottom: 0 !important;
+}
+
+.quickweanewsap, .timedatetext {
+    display: none !important;
 }

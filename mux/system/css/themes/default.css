@@ -76,7 +76,7 @@ button {
   /* Checked */
 
   [type=checkbox]:checked {
-    background-color: currentcolor;
+    background-color: black !important;
   }
 
   [type=checkbox]:checked::before {
@@ -245,7 +245,7 @@ opacity: 1;
 /* End of Special Values*/
 
 a, p, h1, h2, h3, li, div, input, strong, button, textarea, .menus {
-    color: black !important;
+    color: black ;
     font-family: Segoe UI !important;
 }
 hr {
@@ -407,9 +407,10 @@ iframe {
     transition: 0.5s;
     bottom: 6px;
     border-radius: 3px;
+    color: black;
 }
 .taskbarPanel.activeTab {
-    background: rgba(255, 255, 255, 0.600);
+    background: rgba(0, 0, 0, 0.6);
     border: 2px solid rgba(0, 0, 0, 0.200);
     border-radius: 5px;
     transform: scale(1);
@@ -419,12 +420,21 @@ iframe {
     background: transparent;
 }
 .taskbarPanel:hover, .taskbarPanel.minimizedTab:hover {
-    background: rgba(255, 255, 255, 0.400);
+    background: rgba(0, 0, 0, 0.4);
     border: 2px solid rgba(0, 0, 0, 0.200);
     border-radius: 5px;
 }
 .taskbarPanel strong {
     margin: 9px 0px;
+    color: black;
+}
+.taskbarPanel.activeTab > strong {
+    margin: 9px 0px;
+    color: white !important;
+}
+.taskbarPanel:hover > strong {
+    margin: 9px 0px;
+    color: white !important;
 }
 .taskbarPanel img.taskpanelimg {
     margin: 0px 4px 0px 0px;
@@ -440,9 +450,13 @@ iframe {
         height: 103.8%;
 }
 #appsBtn.active {
-    background: rgba(255, 255, 255, 0.600);
+    background: rgba(0, 0, 0, 0.6);
     border: 2px solid rgba(0, 0, 0, 0.200);
     border-radius: 5px;
+}
+
+.notiwindow {
+    filter: invert(1);
 }
 
 .timedatetext {
@@ -474,9 +488,10 @@ iframe {
     transition: 0.1s;
 }
 .quickweanewsap:hover, .timedatetext:hover {
-    background: rgba(255, 255, 255, 0.600);
+    background: rgba(0, 0, 0, 0.6);
     border: 2px solid rgba(0, 0, 0, 0.200);
     border-radius: 5px;
+    color: white;
 }
 .widgetstask {
     display: none !important;
@@ -575,9 +590,7 @@ iframe {
     text-align: left;
     transition: 0.2s;
 }
-#appicons.dark {
-    color: white !important;
-}
+
 #appicons a:hover, #tasksicons a:hover {
 	-moz-border-radius:3px; 
     -webkit-border-radius:3px;
@@ -585,10 +598,7 @@ iframe {
     border: 1px solid rgba(0, 0, 0, 0.200);
     transition: 0.1s;
 }
-#appicons a.dark:hover {
-    background: #0000007a;
-    border: 1px solid black;
-}
+
 #appicons a img, #tasksicons a img {
     border:0; 
     vertical-align:middle; 
@@ -891,7 +901,7 @@ iframe {
     display: none;
     position: absolute;
     backdrop-filter: blur(5px);
-    background-color: black;
+    background-color: #000000db;
 }
 
 #firstexperiencewindow {

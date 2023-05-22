@@ -44,7 +44,7 @@
     overflow-y: scroll;
 }
 
-@media screen and (max-device-width: 768px) {
+@media screen and a(max-device-width: 768px) {
     #themesrow {
        display: none !important;
     }  

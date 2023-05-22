@@ -210,7 +210,7 @@ function createCookie(cname,cvalue,exdays) {
 	localStorage.removeItem("mOSBG");
 	localStorage.removeItem("mOSAppTitleOnTskBar");
 	localStorage.removeItem("mOSTheme");
-	alert("Cookies have been deleted.")
+	alert("Settings have been deleted.")
   }
 
 
