@@ -32,7 +32,7 @@ for (var i = 0; i < btns.length; i++) {
 });
 setInterval(function() {
 	$(".currentst").each(function() {
-	var datatitle = $(this).attr("data-title") + " - Control Panel";
+	var datatitle = $(this).attr("data-title") + " - Settings";
 	document.getElementsByClassName("cpapptitle")[0].innerText = datatitle;
 	});
 }, 1);
