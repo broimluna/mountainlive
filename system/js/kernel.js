@@ -1,5 +1,5 @@
 var kernelver = "4.0";
-var buildnumb = "8000";
+var buildnumb = "8100";
 var iframei = 0
 var i = 0,
 minimizedWidth = new Array,
@@ -20,7 +20,7 @@ id;
 		buildnumber.innerText = buildnumb;
 		//Watermark Stamp
 		let nLastModif = document.lastModified;
-		var watermark = document.getElementById("waterark")
+		var watermark = document.getElementById("watermark")
 		watermark.innerText = "Luna's mountainOS\n Build " + buildnumb + "\nCompiled on " + nLastModif;
 		
 })

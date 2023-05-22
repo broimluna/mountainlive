@@ -1,15 +1,14 @@
 $(document).ready(function(){
 	var appsearch = document.getElementById("appSearch");
-	var tasksearch = document.getElementById("taskSearch");
 	$("#appicons").click(function(){
 		document.getElementById("appsmenu").classList.toggle("opened");
 		document.getElementById("appsmenu").classList.toggle("openedtop");
 		appsearch.value = '';
-		tasksearch.value = '';
 		$("#appicons li").css('display', 'block')
 	  }, function(){
 		document.getElementById("appsmenu").classList.remove("opened");
 		document.getElementById("appsmenu").classList.remove("openedtop");
+		document.getElementById("appsBtn").classList.remove("active");
 		appsearch.value = '';
 		tasksearch.value = '';
 		$("#appicons li").css('display', 'block')
@@ -23,8 +22,8 @@ $(document).ready(function(){
     }, function(){
     document.getElementById("appsmenu").classList.remove("opened");
 	document.getElementById("appsmenu").classList.remove("openedtop");
+	document.getElementById("appsBtn").classList.remove("active");
 	appsearch.value = '';
-	tasksearch.value = '';
 
   });
   });
@@ -73,7 +72,7 @@ function taskSearch() {
 
 function appstoggle() {
 	document.getElementById("appsmenu").classList.toggle("opened");
-	document.getElementById("appsmenu").classList.remove("openedtop")
+	document.getElementById("appsBtn").classList.toggle("active");
 }
 function quickweanewstoggle() {
 	document.getElementById("quickweanews").classList.toggle("opened");
@@ -103,8 +102,6 @@ function startDate(){
     var date = hour + ":" + minute + " • " + m + " " + d + ", " + y
     document.getElementsByClassName("timedatetext")[0].innerText = date;
     document.getElementsByClassName("timedatetext")[0].textContent = date;
-	document.getElementsByClassName("tasktimedate")[0].innerText = date;
-    document.getElementsByClassName("tasktimedate")[0].textContent = date;
 	var quidate = hour + ":" + minute + ":" + seconds + " on " + m + " " + d + ", " + y
 	document.getElementById("quitime").innerText = quidate;
     document.getElementById("quitime").textContent = quidate;
@@ -174,7 +171,7 @@ function quiloadWeather() {
 }
 }
                 weather.html(
-                    "<a><img src='system/img/icons/widgets.png' style='vertical-align: middle;' width='32' height='32'></img></a>" + Math.round(data.main.temp) + '°C, ' + weatherstatus
+                    "<a><img src='system/img/icons/widgets.png' style='vertical-align: middle;' width='46' height='46'></img></a>" + Math.round(data.main.temp) + '°C, ' + weatherstatus
                 )
 				quiweather.html(
                  Math.round(data.main.temp) + '°C, ' + weatherstatus
@@ -184,14 +181,14 @@ function quiloadWeather() {
     }
 
     function error() {
-		weather.html("<a><img src='system/img/icons/widgets.png' style='vertical-align: middle;' width='32' height='32'></img></a>" + 'Unable to retrieve your location for weather')
+		weather.html("<a><img src='system/img/icons/widgets.png' style='vertical-align: middle;' width='46' height='46'></img></a>" + 'Unable to retrieve your location for weather')
 		quiweatherfull.html('Unable to retrieve your location for weather')
 	}
 
 
     navigator.geolocation.getCurrentPosition(success, error)
 
-    weather.html("<a><img src='system/img/icons/widgets.png' style='vertical-align: middle;' width='32' height='32'></img></a>" + 'Fetching current weather...')
+    weather.html("<a><img src='system/img/icons/widgets.png' style='vertical-align: middle;' width='46' height='46'></img></a>" + 'Fetching current weather...')
 	quiweather.html('fetching current weather...')
 	
 }

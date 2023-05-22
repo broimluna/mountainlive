@@ -153,13 +153,6 @@ function createCookie(cname,cvalue,exdays) {
 	$('.checkBox').css('color', cpcolor);
 	$('input').css('border-color', cpcolor);
   }
-  function checkTskBarSrchIconCook() {
-	if (document.cookie.indexOf("mOSSrchBoxTskbar=true") != -1 || localStorage.getItem('mOSSrchBoxTskbar') === "true")  {
-		var checkbox = document.getElementById("taskbarSearchBoxchk")
-		$(".tasksearch").css('display', 'inline');
-		checkbox.checked = true;
-	}
-  }
   
   function defaultColorsCookies() {
 	eraseCookie("mOSColor")
@@ -208,7 +201,6 @@ function createCookie(cname,cvalue,exdays) {
 
   function startCookies() {
 	mOSLeftBarCookie();
-	checkTskBarSrchIconCook();
 	checkAppTitleOnTskBarCook();
 	setColorCookie();
 	set_style_from_cookie();
@@ -234,7 +226,6 @@ function createCookie(cname,cvalue,exdays) {
 	localStorage.removeItem("mOSAppTitleOnTskBar");
 	eraseCookie("mOSTheme");
 	localStorage.removeItem("mOSTheme");
-
 	alert("Cookies have been deleted.")
   }
 

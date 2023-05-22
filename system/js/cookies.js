@@ -207,11 +207,11 @@ function createCookie(cname,cvalue,exdays) {
 	}
 
   function startCookies() {
-	set_style_from_cookie();
 	mOSLeftBarCookie();
 	checkTskBarSrchIconCook();
 	checkAppTitleOnTskBarCook();
 	setColorCookie();
+	set_style_from_cookie();
 	CheckFTUEandUsername();
 	checkBGCookie();
 

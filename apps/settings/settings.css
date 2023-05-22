@@ -28,6 +28,10 @@
     width: 0%;
     height: 10%;
 }
+#themesrow button {
+    margin: 6px 3px;
+    white-space: nowrap;
+}
 #tabsettings button {
     margin: 2px -1px;
     white-space: nowrap;
@@ -36,15 +40,8 @@
     display: none;
 }
 #themesrow {
-    overflow-x: scroll;
-    overflow-y: hidden;
     display: flex;
-    width: 99%;
-    height: 36px;
-    position: static;
-}
-#themesrow button {
-    margin: 0px 2px;
+    overflow-y: scroll;
 }
 
 @media screen and (max-device-width: 768px) {

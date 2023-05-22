@@ -1,5 +1,5 @@
-var kernelver = "4.0";
-var buildnumb = "8100";
+var kernelver = "4.1";
+var buildnumb = "9356";
 var iframei = 0
 var i = 0,
 minimizedWidth = new Array,
@@ -27,9 +27,9 @@ id;
 
 //Startup Functions 
 function startupFunctions() {
-	startDate();
-	quiloadWeather();
 	quiloadDate();
+	quiloadWeather();
+	startDate();
 	startCookies();
 }
 

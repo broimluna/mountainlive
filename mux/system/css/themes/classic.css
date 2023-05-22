@@ -2,6 +2,7 @@
     width: auto;
     border-radius: 0px;
     bottom: 0;
+    text-align: left !important;
 }
 #appsmenu, #quickweanews {
     margin: unset !important;
@@ -14,12 +15,9 @@
     top: 0 !important;
 }
 
-.quickfeatures {
+.quickweanewsap {
     display: none;
 }   
-.centrdAppsTxt, #centrdAppsChk, .betweenapptitlencentrd, #centrdAppsChkSetup {
-    display: none;
-}
 
 #timedateflyout {
     margin: unset !important;
