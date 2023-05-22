@@ -437,7 +437,7 @@ iframe {
 #appsBtn {
         font-size: 0px !important;
         top: -5px;
-        height: 103%;
+        height: 103.8%;
 }
 #appsBtn.active {
     background: rgba(255, 255, 255, 0.600);
@@ -461,11 +461,12 @@ iframe {
     height: auto;
     display: inline-table;
     width: auto;
-    top: calc(0% + -1px);
+    top: calc(0% + -2px);
     border: 2px solid transparent;
     left: -2px;
     margin: 0 !important;
     line-height: 0px;
+    height: 100%;
     bottom: 5px;
     color: black;
     font-family: Segoe UI;
