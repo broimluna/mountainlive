@@ -338,7 +338,6 @@ iframe {
     line-height: 23px;
     top: -2px;
     left: 2px !important;
-    border-radius: 7px;
 }
 
 .windowHeader > span:hover {
@@ -379,7 +378,6 @@ iframe {
     background-color: rgba(255, 255, 255, 0.600);
     background-size: cover;
     border: 2px solid rgba(0, 0, 0, 0.200);
-    border-radius: 8px;
     
 }
 
@@ -450,11 +448,13 @@ iframe {
         font-size: 0px !important;
         top: -5px;
         height: 103.8%;
+        transform: scale(0.8);
 }
 #appsBtn.active {
     background: rgba(0, 0, 0, 0.6);
     border: 2px solid rgba(0, 0, 0, 0.200);
     border-radius: 5px;
+    transform: scale(0.9);
 }
 
 .notiwindow {
@@ -487,10 +487,10 @@ iframe {
     color: black;
     font-family: Segoe UI;
     font-size: 15px;
-    transition: 0.2s;
+    transition: 0.1s;
 }
 .quickweanewsap:hover, .timedatetext:hover {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
     border: 2px solid rgba(0, 0, 0, 0.200);
     border-radius: 5px;
     color: white;
@@ -570,50 +570,28 @@ iframe {
     height: 88%;
  }
 
-#appicons, #tasksicons {
-	background:transparent;
-	border:solid 1px transparent;
-	margin: 50px 0 7px 0px;
-	height: 74%;
-	width: calc(100% - 4px);
-	overflow-y: scroll;
-	float:left;
-	display:block;
-	padding:0;
-	list-style:none;
-	transition: 0.2s;
+
+#appicons {
+	position: absolute;
+	z-index: 10;
+	top: 48px;
+	height: 80%;
+	/* left: 5px; */
+	/* overflow-y: scroll; */
 }
-#tasksicons {
-    margin: 0px 0 7px 0px;
-    height: 85%;
-}
-#appicons a, #tasksicons a {
-    border: solid 1px transparent;
-    display: block; 
-    padding:3px; 
-    margin:3px;
-    text-decoration: none; 
-    min-width:220px;
+#appicons a, #appicons li {
+    display: inline-table;
     cursor: pointer;
-    text-align: left;
-    transition: 0.2s;
+    padding: 2px 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    border-radius: 5px;
 }
-
-#appicons a:hover, #tasksicons a:hover {
-	-moz-border-radius:3px; 
-    -webkit-border-radius:3px;
-    background: #00000045;
-    border: 1px solid rgba(0, 0, 0, 0.200);
-    transition: 0.1s;
-}
-
-#appicons a img, #tasksicons a img {
-    border:0; 
-    vertical-align:middle; 
-    margin:0 5px 0 0;
+#appicons a:hover, #appicons li:hover  {
+	background: rgb(0, 0, 0);
+	color: white;
 }
 #appicons a br, #tasksicons a br {
-    display: none;
 }
 .appsHtxt {
     font-family: Segoe UI;
@@ -686,7 +664,7 @@ iframe {
     background-size: 14px;
     background-repeat: no-repeat;
     background-position: 10px center;
-    color: black;
+    color: white;
 }
 
 

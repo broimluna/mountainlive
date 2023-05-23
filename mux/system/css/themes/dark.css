@@ -15,7 +15,7 @@ hr {
     color: white;
 }
 #appSearch {
-    background-image: url("../../img/icons/tbSearchW.png");
+    background-image: url("../../img/icons/tbSearchW.png") !important;
     border-bottom: 1px solid white !important;
 }
 #userProfile hr {
@@ -38,9 +38,16 @@ hr {
     color: black !important;
 }
 #appsBtn.active {
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.6);
     border: 2px solid rgba(0, 0, 0, 0.200);
     border-radius: 5px;
+}
+.quickweanewsap.active, .timedatetext.active {
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(0, 0, 0, 0.200);
+    border-radius: 5px;
+    color: black !important;
+
 }
 
 .tdfi {
@@ -63,4 +70,9 @@ hr {
 .taskbarPanel:hover > strong {
     margin: 9px 0px;
     color: black !important;
+}
+
+
+.tab {
+    border-left: 2px solid white !important;
 }

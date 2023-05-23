@@ -76,9 +76,11 @@ function appstoggle() {
 }
 function quickweanewstoggle() {
 	document.getElementById("quickweanews").classList.toggle("opened");
+	document.getElementsByClassName("quickweanewsap")[0].classList.toggle("active");
 }
 function timedatetoggle() {
 	document.getElementById("timedateflyout").classList.toggle("opened");
+	document.getElementsByClassName("timedatetext")[0].classList.toggle("active");
 }
 
 function startDate(){
