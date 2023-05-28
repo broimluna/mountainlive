@@ -32,7 +32,7 @@ for (var i = 0; i < btns.length; i++) {
 });
 setInterval(function() {
 	$(".currentst").each(function() {
-	var datatitle = $(this).attr("data-title") + " - Control Panel";
+	var datatitle = $(this).attr("data-title") + " - Settings";
 	document.getElementsByClassName("cpapptitle")[0].innerText = datatitle;
 	});
 }, 1);
@@ -93,8 +93,8 @@ reader.onloadend = function() {
 		localStorage.removeItem("mOSBG");
 	  }
 	  function localBG() {
-		document.getElementsByClassName('desktop')[0].style.background = "url('system/img/bg.png')";
-		localStorage.setItem("mOSBG", "system/img/bg.png");
+		document.getElementsByClassName('desktop')[0].style.background = "url('https://bing.biturl.top/?resolution=3840&format=image&index=0&mkt=en-CA')";
+		localStorage.setItem("mOSBG", "https://bing.biturl.top/?resolution=3840&format=image&index=0&mkt=en-CA");
 	}
 	
 	
@@ -114,22 +114,7 @@ reader.onloadend = function() {
 		$('input').css('border-color', '');
 	  }
 
-	  function tskSearchBox() {
-		var checkbox = document.getElementById("taskbarSearchBoxchk")
-		
-		if (checkbox.checked == true) {
-			$(".tasksearch").css('display', 'inline');
-			localStorage.setItem("mOSSrchBoxTskbar", "true");
-			document.cookie("mOSSrchBoxTskbar=true");
 
-		}
-		else {
-			$(".tasksearch").css('display', '');
-			localStorage.setItem("mOSSrchBoxTskbar", "false");
-			document.cookie("mOSSrchBoxTskbar=false");
-		}
-
-	  }
 	  
 
 	  function setUsrSet() {

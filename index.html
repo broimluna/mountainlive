@@ -10,13 +10,13 @@
 	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 	<script src="system/js/kernel.js"></script>	
 	<script src="system/js/desktop.js"></script>	
-	<script src="system/js/cookies.js"></script>
 	<script src="system/js/screensaver.js"></script>
-	<script src="system/js/taskbar.js"></script>								
+	<script src="system/js/taskbar.js"></script>
+	<script src="system/js/cookies.js"></script>								
 	<link rel="stylesheet" type="text/css" href="system/css/themes/default.css" />
 	<link rel="alternate stylesheet 2" type="text/css" title="classic" href="system/css/themes/classic.css" />
 	<link rel="alternate stylesheet 3" type="text/css" title="mobile" href="system/css/themes/mobile.css" />
-	<link rel="alternate stylesheet 4" type="text/css" title="avaos" href="system/css/themes/avaos.css" />
+	<link rel="alternate stylesheet 4" type="text/css" title="dark" href="system/css/themes/dark.css" />
 	<link rel="stylesheet" media="screen and (max-device-width: 768px)" href="system/css/themes/mobile.css" />
 
 
@@ -93,7 +93,7 @@
 			</div>
 			<audio style="width:100%;height:28px;bottom:0;position:absolute;" id="my-audio" controls loop></audio>		
 		</div>
-			<div class="window closed" data-html="true" taskicon="<img src='system/img/icons/settings.png' width='42' height='42'>" headicon="<img src='system/img/icons/settings.png' class='winheadimg' width='26' height='26'>" data-title="<strong class='cpapptitle'>Control Panel</strong>">
+			<div class="window closed" data-html="true" taskicon="<img src='system/img/icons/settings.png' width='42' height='42'>" headicon="<img src='system/img/icons/settings.png' class='winheadimg' width='26' height='26'>" data-title="<strong class='cpapptitle'>Settings</strong>">
 				<script src="apps/settings/settings.js"></script>
 				<link rel="stylesheet" type="text/css" href="apps/settings/settings.css" />			
 				<div id="tabsettings">
@@ -107,8 +107,8 @@
 				<h1 id="settingsh1" class="themestext">Themes</h1>
 				<div id="themesrow">
 					<button id="settingsbutton" onclick="switch_style('default');return false;" name="Default Theme" value="Default Theme">Default</button>
+					<button id="settingsbutton" onclick="switch_style('dark');return false;" name="Dark Theme" value="Dark Mobile">Dark</button>
 					<button id="settingsbutton" onclick="switch_style('classic');return false;" name="Classic Theme" value="Theme Classic">Classic</button>
-					<button id="settingsbutton" onclick="switch_style('avaos');return false;" name="AvalancheOS Theme" value="Theme AvalancheOS">AvalancheOS</button>
 					<button id="settingsbutton" onclick="switch_style('mobile');return false;" name="Mobile Theme" value="Theme Mobile">Mobile</button>
 					<hr id="settingshr" class="themeshr">
 				</div>
@@ -117,7 +117,7 @@
 					<input id="inputbtn" class="wppicker" type="file" accept="image/*" onchange="changeBG(event)">
 					<br>
 					<br>
-					<button onclick="localBG()">Enable Local Wallpaper</button>
+					<button onclick="localBG()">Enable Bing Wallpaper</button>
                     <br>
 					<br>
 					<button onclick="resetBG(event)">Reset to default</button>
@@ -132,12 +132,10 @@
 					<br>
 					<br>
 					<hr id="settingshr">
+					<div class="taskbartab">
 					<h1 id="settingsh1" class="tskbrtab">Taskbar</h1>
-					<input type="checkbox" onclick="centeredApps()" id="centrdAppsChk" class="checkBox"><a class="centrdAppsTxt">Set the taskbar to the left</a></input>
-					<br class="betweenapptitlencentrd">
 					<input type="checkbox" onclick="addAppTitleTaskbar()" id="AppTitleOnTaskBarPanelChk" class="checkBox"><a class="addAppTitleTaskbarTxt">Apply app titles to taskbar icons.</a></input>
-					<br class="betweenapptitlentsksrchbox">
-					<input type="checkbox" onclick="tskSearchBox()" id="taskbarSearchBoxchk" class="checkBox"><a class="taskbarSearchBoxTxt">Enable search on the taskbar.</a></input>
+				    </div>
 				    </div>
 
 					<div id="UserProfile" data-title="User Profile" class="tab" style="display:none;overflow: hidden;">
@@ -175,7 +173,7 @@
 					<hr id="settingshr">
 					<a>Kernel: <a class="kernelver"></a></a>
 					<br>
-					<a>June 2023 Release (Build: <a class="buildnumb"></a>)</a>
+					<a>Dev Release (Build: <a class="buildnumb"></a>)</a>
 					<br>		
 					<hr id="settingshr">
 					<a>broimluna - 2023</a>
@@ -183,15 +181,16 @@
 					<br>
 					<p>Current theme: <a class="currenttheme"></a></p>
 					<p>Based on 'Windows' Template from <a target="blank" id="htmltemp" href="https://html5-templates.com">html5-templates.com</a></p>
-					<a href="mux/index.html"><button>Try the next experience</button></a>
 					<hr>
-					<a>Click the "Reset cookies" to reset your settings.</a>
+					<a>Click the "Reset mountainOS" to reset your settings.</a>
 					<br>
 					<br>
+					<strong>
 					<a>This will include your wallpaper, profile picture and username, color settings and taskbar settings.</a>
 					<br>
+				</strong>
 					<br>
-					<button onclick="resetAllCookies();">Reset cookies</button>
+					<button onclick="resetAllCookies();"><strong>Reset mountainOS</strong></button>
 				</div>
 			</div>
 			<div class="window closed" data-html="true" data-title="<strong class='winheadstrongtitle'>Terminal</strong>" taskbar-title="<strong>Terminal</strong>" taskicon="<img src='system/img/icons/terminal.png'  width='42' height='42'>" headicon="<img src='system/img/icons/terminal.png' class='winheadimg' width='26' height='26'>">
@@ -220,7 +219,7 @@
 				</div>		
 			</div>
 
-			<div class="window closed" data-html="true" data-title="<strong class='winheadstrongtitle'>mountainOS</strong>" taskbar-title="<strong>mountainOS</strong>" taskicon="<img src='system/img/systemlogo.png'  width='42' height='44'>" headicon="<img src='system/img/systemlogo.png' class='winheadimg' width='28' height='30'>">
+			<div class="window closed" data-html="true" data-title="<strong class='winheadstrongtitle'>mountainOS</strong>" taskbar-title="<strong>mountainOS</strong>" taskicon="<img src='system/img/systemlogo.png'  width='42' height='44'>" headicon="<img src='system/img/systemlogo.png' class='winheadimg notiwindow' width='28' height='30'>">
 				<a class="alertxt"></a>
 				<br>
 				<br>
@@ -232,19 +231,14 @@
 			
 			
 		<div id="taskbar">
-			<a id="appsBtn" onclick="appstoggle()"><img src='system/img/icons/apps.png' width='46' height='46'></a>
-			<a id="appsBtn" class="widgetstask" onclick="quickweanewstoggle()"><img src='system/img/icons/widgets.png' width='46' height='46'></a>
-			<a class="tasktimedate" title="Click here to see the date and time." onclick="timedatetoggle();"></a>
-			<input type="text" id="taskSearch" class="tasksearch" onclick="document.getElementById('appsmenu').classList.toggle('openedtop');" onkeyup="taskSearch()" placeholder="Click here to search for an app" title="Click here to search for an app">
+			<a class="taskbarPanel" id="appsBtn" onclick="appstoggle()"><img src='system/img/icons/apps.png' width='46' height='46'></a>
+			<a class="timedatetext" title="Click here to see the date and time." onclick="timedatetoggle();"></a>
+			<a class="quickweanewsap" title="Click here to access weather and news." onclick="quickweanewstoggle();"></a>
+			
 
 		</div>
 
-		<div class="quickfeatures">
-			<a class="timedatetext" title="Click here to see the date and time." onclick="timedatetoggle();"></a>
-			<a class="quickweanewsap" title="Click here to access weather and news." onclick="quickweanewstoggle();"></a>
-			<input type="text" id="taskSearch" onclick="document.getElementById('appsmenu').classList.toggle('openedtop');" onkeyup="taskSearch()" placeholder="Click here to search for an app" title="Click here to search for an app">
-		 </div>
-		
+	
 		
 		
 		<div id="appsmenu">
@@ -287,7 +281,7 @@
 
 			<div id="timedateflyout">
 				<h1 style="top: 3px; position: relative;">The time is <span id="quitime"></span></h2>
-				<iframe src="apps/calendar/index.html"></iframe>
+				<iframe class="tdfi" src="apps/calendar/index.html"></iframe>
 			   <hr> 
 			</div>
 			<div id="firstexperience">
@@ -320,9 +314,6 @@
 				 <input type="color" id="colorpickersetup"><a>Choose your color</a></input>
 				 <br>
 				 <br>
-				 <input type="checkbox" onclick="centeredAppsStp()" id="centrdAppsChkSetup" class="checkBox"><a class="centrdAppsTxt">Set the taskbar to the left</a></input>
-				 <br>
-				 <br>
 				 <input type="checkbox" onclick="addAppTitleTaskbarStp()" id="AppTitleOnTaskBarPanelStp" class="checkBox"><a class="addAppTitleTaskbarTxt">Add app title to taskbar icons.</a></input>
 				 <br>
 				 <br>
@@ -344,7 +335,7 @@
 	
 	<div id="contextMenu" class="context-menu" style="display: none; left: 140px; top: 421px;">
 		<ul>
-			<li class="openWindow" data-id="8">Open Control Panel</li>
+			<li class="openWindow" data-id="8">Open Settings</li>
 			<li onclick="window.location.reload(true);">Reload mountainOS</li>
 			<li onclick="activatefull(document.documentElement);">Activate Fullscreen</li>
 			<li onclick="deactivatefull();">Deactivate Fullscreen</li>

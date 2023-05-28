@@ -3,7 +3,6 @@
 /* Special Values*/
 button, input, input[type=file], #Bronze {
     border-radius: 5px;
-    backdrop-filter: blur(5px);
     border: 2px solid rgba(0, 0, 0, 0.200);
     background-color: transparent;
 }
@@ -12,8 +11,20 @@ button {
     cursor: pointer;
 }
 
+@media screen and (max-device-width: 1680px) {
+    .taskbarPanel {
+        font-size: 0px !important;
+    }
+    .taskbarPanel img.taskpanelimg {
+        margin: 0px 0px 0px 0px !important;
+    }
+    .taskbartab {
+        display: none !important;
+    }
+}
+
 ::placeholder {
-    color: white;
+    color: black;
 }
 
 ::-webkit-scrollbar-track
@@ -61,14 +72,17 @@ button {
   /* Pseudo element for check styling */
 
   [type=checkbox]::before {
+    /* background: black !important; */
     content: "";
     color: transparent;
+    border: 2px solid white;
     display: block;
     width: inherit;
     height: inherit;
     border-radius: inherit;
     border: 0;
     background-color: transparent;
+    /* filter: invert(1); */
     background-size: contain;
     box-shadow: inset 0 0 0 1px #CCD3D8;
   }
@@ -77,12 +91,13 @@ button {
   /* Checked */
 
   [type=checkbox]:checked {
-    background-color: currentcolor;
+    background-color: black;
   }
 
   [type=checkbox]:checked::before {
     box-shadow: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E %3Cpath d='M15.88 8.29L10 14.17l-1.88-1.88a.996.996 0 1 0-1.41 1.41l2.59 2.59c.39.39 1.02.39 1.41 0L17.3 9.7a.996.996 0 0 0 0-1.41c-.39-.39-1.03-.39-1.42 0z' fill='%23fff'/%3E %3C/svg%3E");
+    /* filter: invert(1); */
   }
 
 
@@ -246,8 +261,11 @@ opacity: 1;
 /* End of Special Values*/
 
 a, p, h1, h2, h3, li, div, input, strong, button, textarea, .menus {
-    color: white;
+    color: black ;
     font-family: Segoe UI !important;
+}
+hr {
+    border-top: 1px solid #000;
 }
 
 
@@ -257,7 +275,7 @@ a, p, h1, h2, h3, li, div, input, strong, button, textarea, .menus {
    font-size: 1.5em;
 }
 #abranding img {
-    /* filter: invert(1); */
+    filter: invert(1);
 }
 
 #startuplogo {
@@ -293,23 +311,22 @@ iframe {
     height: 100%;
     width: 100%;
     position: absolute;
-    backdrop-filter: blur(0.00001px);
 }
 #desktop {
-    background: url("https://bing.biturl.top/?resolution=3840&format=image&index=0&mkt=en-CA");
+    background: url("../../img/bg.png");
     background-size: cover !important;
     background-repeat: no-repeat !important;
     transition: 0.2s;
 }
 #taskbar {
     backdrop-filter: blur(5px);
-    background-size: cover !important;
     height: 48px;
     margin: 0 auto;
     z-index: 1010;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.6);
     border: 2px solid rgba(0, 0, 0, 0.200);
-    width:fit-content;
+    width: 99%;
+    text-align: center;
     border-radius: 5px;
     transition: 0.2s;
     bottom: 7px;
@@ -336,8 +353,8 @@ iframe {
     height: 26px;
     line-height: 23px;
     top: -2px;
-    border-radius: 3.5px;
     left: 2px !important;
+    border-radius: 7px;
 }
 
 .windowHeader > span:hover {
@@ -375,16 +392,17 @@ iframe {
 }
 .window {
     backdrop-filter: blur(5px);
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.600);
     background-size: cover;
     border: 2px solid rgba(0, 0, 0, 0.200);
+    border-radius: 8px;
     
 }
 
 .window.fullSizeWindow {
     border: 0px solid transparent;
     backdrop-filter: blur(5px);
-    top: 35px !important;
+    top: 0 !important;
     bottom: 42px !important;
     left: 0 !important;
     right: 0 !important;
@@ -399,89 +417,105 @@ iframe {
     border: 2px solid transparent;
     background: transparent;
     font-size: 0px;
-    padding: 1px 2px;
-    margin: 0px 0 0 0px;
-    line-height: 16px;
-    bottom: 3px;
+    padding: 2px 2px;
+    margin: 0px 0px 0px 0px;
+    line-height: 18px;
     position: relative;
     transform: scale(0.9);
     transition: 0.5s;
+    bottom: 6px;
     border-radius: 3px;
+    color: black;
 }
 .taskbarPanel.activeTab {
-    background: rgba(0, 0, 0, 0.300);
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(0, 0, 0, 0.200);
+    border-radius: 5px;
     transform: scale(1);
+    height: 92%;
 }
 .taskbarPanel.minimizedTab {
     background: transparent;
 }
 .taskbarPanel:hover, .taskbarPanel.minimizedTab:hover {
-    background: rgba(0, 0, 0, 0.150);
-    transition: 0.5s;
-    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(0, 0, 0, 0.200);
+    border-radius: 5px;
 }
 .taskbarPanel strong {
-    margin: 11px 0px;
+    margin: 9px 0px;
+    color: black;
+}
+.taskbarPanel.activeTab > strong {
+    margin: 9px 0px;
+    color: white !important;
+}
+.taskbarPanel:hover > strong {
+    margin: 9px 0px;
+    color: white !important;
 }
 .taskbarPanel img.taskpanelimg {
     margin: 0px 4px 0px 0px;
 }
-#appsBtn {
-    display: inline-block;
-    border: transparent;
-    position: relative;
-    font-size: 15px;
-    padding: 0px 2px;
-    background: transparent;
-    font-weight: bold;
-    cursor: pointer;
-    height: 0px;
-    transition: 0.5s;
-    border-radius: 4px;
-}
 #appsBtn img {
-    transition: 0.5s;
-    margin: 1px 0px;
+        margin: 0px 0px;
+        bottom: -2px;
+        position: relative;
 }
-#appsBtn img:hover {
-background: rgba(0, 0, 0, 0.5);
-transition: 0.5s;
-border-radius: 4px;
+#appsBtn {
+        font-size: 0px !important;
+        top: -5px;
+        height: 103.8%;
+}
+#appsBtn.active {
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(0, 0, 0, 0.200);
+    border-radius: 5px;
+}
+
+.notiwindow {
+    filter: invert(1);
 }
 
 .timedatetext {
     position: absolute;
     border: 2px solid transparent;
-    top: calc(0% + 6px);
+    top: calc(0% + 13px);
     right: 2px;
-    color: white;
+    color: black;
     font-family: Segoe UI;
     text-align: right;
     font-size: 15px;
     transition: 0.2s;
 }
 .quickweanewsap {
-    position: relative;
-    height: 4px;
-    display: table;
-    top: calc(0% + -10px);
+    position: absolute;
+    height: auto;
+    display: inline-table;
+    width: auto;
+    top: calc(0% + -2px);
     border: 2px solid transparent;
-    left: 5px;
-    line-height: 6px;
-    color: white;
+    left: -2px;
+    margin: 0 !important;
+    line-height: 0px;
+    height: 100%;
+    bottom: 5px;
+    color: black;
     font-family: Segoe UI;
-    text-align: right;
-    vertical-align: middle;
     font-size: 15px;
-    transition: 0.1s;
+    transition: 0.2s;
 }
 .quickweanewsap:hover, .timedatetext:hover {
-    background: transparent !important;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.4);
     border: 2px solid rgba(0, 0, 0, 0.200);
-    height: 15px;
     border-radius: 5px;
+    color: white;
+}
+.quickweanewsap.active, .timedatetext.active {
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(0, 0, 0, 0.200);
+    border-radius: 5px;
+    color: white;
 }
 .widgetstask {
     display: none !important;
@@ -515,7 +549,7 @@ border-radius: 4px;
     left: 5px;
     right: 0;
     opacity: 0;
-    bottom: 62px;
+    bottom: 68px;
     z-index: 2000;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -523,13 +557,11 @@ border-radius: 4px;
     transition: 0.5s;
     background-size: auto;
     backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.600);
     -webkit-backdrop-filter: blur(5px);
     border-radius: 16px;
 }
 
-#appsmenu.dark {
-    background: #2929299f;
-}
 
 #appsmenu.opened {
     height: 390px; 
@@ -582,20 +614,16 @@ border-radius: 4px;
     text-align: left;
     transition: 0.2s;
 }
-#appicons.dark {
-    color: white !important;
-}
+
 #appicons a:hover, #tasksicons a:hover {
 	-moz-border-radius:3px; 
     -webkit-border-radius:3px;
     background: #00000045;
     border: 1px solid rgba(0, 0, 0, 0.200);
     transition: 0.1s;
+    color: white;
 }
-#appicons a.dark:hover {
-    background: #0000007a;
-    border: 1px solid black;
-}
+
 #appicons a img, #tasksicons a img {
     border:0; 
     vertical-align:middle; 
@@ -641,7 +669,7 @@ border-radius: 4px;
 }
 #userProfile hr {
     margin: 0 !important;
-    background: white;
+    background: black;
     border: 0px solid transparent;
 }
 
@@ -668,14 +696,14 @@ border-radius: 4px;
     left: -2px;
     border-radius: 0px;
     border-color: transparent;
-    border-bottom: 1px solid white !important;
+    border-bottom: 1px solid black !important;
     outline: none;
     /* padding: 9px 4px 9px 4px; */
-    background-image: url("../../img/icons/tbSearchW.png");
+    background-image: url("../../img/icons/tbSearchD.png");
     background-size: 14px;
     background-repeat: no-repeat;
     background-position: 10px center;
-    color: white;
+    color: black;
 }
 
 
@@ -757,6 +785,7 @@ border-radius: 4px;
 
 }
 
+
 #taskSearch.icon:hover {
     background: #00000050 !important;
     background-image: url("../../img/icons/tbSearchW.png") !important;
@@ -791,16 +820,18 @@ border-radius: 4px;
     position: fixed;
     width: 400px;
     height: 0px;
-    left: 5px;
+    left: 0px;
     right: 0;
     opacity: 0;
-    top: 42px;
+    margin: 0 auto;
+    bottom: 68px;
     z-index: 2000;
     overflow-x: hidden;
     overflow-y: hidden;
     border: 2px solid transparent;
     transition: 0.5s;
     background-size: auto;
+    background: rgba(255, 255, 255, 0.600);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border-radius: 16px;
@@ -829,6 +860,10 @@ border-radius: 4px;
     display: block;
     width: 97%;
 }
+#quickweanews {
+    margin: unset !important;
+    left: 5px;
+}
 
 #quinews {
     display: block;
@@ -846,7 +881,7 @@ border-radius: 4px;
 .context-menu {
     position: absolute;
     text-align: center;
-    background: transparent;
+    background-color: rgba(255, 255, 255, 0.600);
     border: 2px solid rgba(0, 0, 0, 0.200);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -892,7 +927,7 @@ border-radius: 4px;
     display: none;
     position: absolute;
     backdrop-filter: blur(5px);
-    background-color: black;
+    background-color: #000000db;
 }
 
 #firstexperiencewindow {
@@ -916,6 +951,7 @@ border-radius: 4px;
 #firstexperience h1 {
         left: 10px;
         font-size: xx-large;
+        color: white !important;
         top: 5px;
         position: relative;
 }
@@ -923,13 +959,19 @@ border-radius: 4px;
     left: 10px;
     font-size: x-large;
     top: 0px;
+    color: white !important;
     position: relative;
 }
 
 #firstexperience input, #firstexperience .centrdAppsTxt, #firstexperience button, #firstexperience a {
     left: 10px;
     position: relative;
+    color: white !important;
 }
+#firstexperiencewindow > #usrinpt::placeholder {
+   color: white !important;
+}
+
 
 .FTUEtext {
     left: 0;
@@ -1139,4 +1181,7 @@ border-radius: 4px;
         }
         #minimPanel11 {
             display: none;
+        }
+        .cmd, .cmd div, .cmd span[data-text]:not(.cmd-inverted):not(.token):not(.emoji), .terminal, .terminal-output>:not(.raw) a, .terminal-output>:not(.raw) div, .terminal-output>:not(.raw) span[data-text]:not(.token):not(.inverted):not(.terminal-inverted):not(.cmd-inverted):not(.terminal-error):not(.emoji), .terminal.external [data-text] {
+            color: #000 !important;
         }

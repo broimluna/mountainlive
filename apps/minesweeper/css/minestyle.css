@@ -346,7 +346,7 @@ body > .window-titlebar {
 .menus *, .menu-popup * {
 	font-size: 12px;
 	border-radius: 15px;
-	color: white;
+	color: black;
 }
 .menu-container {
 	margin-bottom: 1px;
@@ -408,7 +408,7 @@ body > .window-titlebar {
 	margin: 0px 2px;
 }
 .menu-hotkey {
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 

@@ -31,14 +31,7 @@ function switch_style ( css_title )
 }
 function set_style_from_cookie()
 {
-  var css_title = get_cookie_style( style_cookie_name );
-
-  if (css_title.length) {
-    switch_style( css_title );
-  }
-
   var css_title_ls = localStorage.getItem( style_cookie_name )
-
   if (localStorage.hasOwnProperty('mOSTheme') != -1)  {
 	switch_style( css_title_ls );
   }
@@ -95,8 +88,8 @@ function createCookie(cname,cvalue,exdays) {
 	return "";
   }
 
-    function eraseCookie(c_name) {
-	createCookie(c_name,"",-1);
+  function eraseCookie(name) {
+	document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
   }
 
 
@@ -119,7 +112,7 @@ function createCookie(cname,cvalue,exdays) {
 
 
   function mOSLeftBarCookie() {
-  if (document.cookie.indexOf("mOSLeftBar=true") != -1 || localStorage.getItem('mOSLeftBar') === "true")  {
+  if (localStorage.getItem('mOSLeftBar') === "true")  {
 	var taskbar = document.getElementById("taskbar");
 	var checkBox = document.getElementById("centrdAppsChk");
 	var checkSetup = document.getElementById("centrdAppsChkSetup");
@@ -138,7 +131,7 @@ function createCookie(cname,cvalue,exdays) {
 }
 
   function setColorCookie() {
-	var cpcolor = getCookie("mOSColor") || localStorage.getItem("mOSColor");
+	var cpcolor = localStorage.getItem("mOSColor");
 	const winhead = document.getElementsByClassName('windowHeader');
     $(winhead).css('background', cpcolor);
 	$('#taskbar').css('background', cpcolor);
@@ -153,29 +146,21 @@ function createCookie(cname,cvalue,exdays) {
 	$('.checkBox').css('color', cpcolor);
 	$('input').css('border-color', cpcolor);
   }
-  function checkTskBarSrchIconCook() {
-	if (document.cookie.indexOf("mOSSrchBoxTskbar=true") != -1 || localStorage.getItem('mOSSrchBoxTskbar') === "true")  {
-		var checkbox = document.getElementById("taskbarSearchBoxchk")
-		$(".tasksearch").css('display', 'inline');
-		checkbox.checked = true;
-	}
-  }
   
   function defaultColorsCookies() {
-	eraseCookie("mOSColor")
 	localStorage.removeItem("mOSColor")
    };
 
    
 
 	function CheckFTUEandUsername() {
-		if (document.cookie.indexOf("FTUEStatus=todo") == null || localStorage.getItem('FTUEStatus') === null)  {
+		if (localStorage.getItem('FTUEStatus') === null)  {
 			$("#firstexperience").css("display", "block");
 		}
 		else {
 			void(0);
 		}
-		if (localStorage.hasOwnProperty('mOSpfp') != -1)  {
+		if (localStorage.hasOwnProperty('mOSpfp'))  {
 			var output = document.getElementsByClassName('pfpimage')[0];
 			var setoutput = document.getElementsByClassName('pfpimageset')[0];
 			var mOSpfpLS = localStorage.getItem("mOSpfp");
@@ -188,7 +173,7 @@ function createCookie(cname,cvalue,exdays) {
 		} else {
 			return;		
 		}
-		var username = getCookie("mOSUsername") || localStorage.getItem("mOSUsername");
+		var username = localStorage.getItem("mOSUsername");
 		document.getElementsByClassName("userProfileTxt")[0].innerText = username;
 		document.getElementsByClassName("userProfileTxt")[0].textContent = username;
 		document.getElementsByClassName("userProfileSetTxt")[0].innerText = username;
@@ -196,7 +181,7 @@ function createCookie(cname,cvalue,exdays) {
 	}
 
 	function checkAppTitleOnTskBarCook() {
-		if (document.cookie.indexOf("mOSAppTitleOnTskBar=true") != -1 || localStorage.getItem('mOSAppTitleOnTskBar') === "true")  {
+		if (localStorage.getItem('mOSAppTitleOnTskBar') === "true")  {
 			var checkBoxSettings = document.getElementById("AppTitleOnTaskBarPanelChk");
 			$(".taskbarPanel").each(function() {
 				$(".taskbarPanel").css("fontSize", "17px");
@@ -208,7 +193,6 @@ function createCookie(cname,cvalue,exdays) {
 
   function startCookies() {
 	mOSLeftBarCookie();
-	checkTskBarSrchIconCook();
 	checkAppTitleOnTskBarCook();
 	setColorCookie();
 	set_style_from_cookie();
@@ -218,24 +202,15 @@ function createCookie(cname,cvalue,exdays) {
   }
 
   function resetAllCookies() {
-	eraseCookie("mOSColor");
 	localStorage.removeItem("mOSColor");
-	eraseCookie("mOSUsername");
 	localStorage.removeItem("mOSUsername");
-	eraseCookie("mOSpfp");
 	localStorage.removeItem("mOSpfp");
-	eraseCookie("FTUEStatus");
 	localStorage.removeItem("FTUEStatus");
-	eraseCookie("mOSLeftBar");
 	localStorage.removeItem("mOSLeftBar");
-	eraseCookie("mOSBG");
 	localStorage.removeItem("mOSBG");
-	eraseCookie("mOSAppTitleOnTskBar");
 	localStorage.removeItem("mOSAppTitleOnTskBar");
-	eraseCookie("mOSTheme");
 	localStorage.removeItem("mOSTheme");
-
-	alert("Cookies have been deleted.")
+	alert("Settings have been deleted.")
   }
 
 

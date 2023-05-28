@@ -1,0 +1,104 @@
+#taskbar, #appsmenu, #quickweanews, #timedateflyout, .window, .context-menu {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+a, p, h1, h2, h3, li, div, input, strong, button, textarea, .menus {
+    color: white !important;
+    font-family: Segoe UI !important;
+}
+button, input, input[type=file], #Bronze {
+    border-radius: 5px;
+    border: 2px solid rgb(255 255 255 / 20%);
+    background-color: transparent;
+}
+[type=checkbox]:checked::before {
+    box-shadow: none;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'> <path d='M15.88 8.29L10 14.17l-1.88-1.88a.996.996 0 1 0-1.41 1.41l2.59 2.59c.39.39 1.02.39 1.41 0L17.3 9.7a.996.996 0 0 0 0-1.41c-.39-.39-1.03-.39-1.42 0z' fill='black'/> </svg>");
+    /* filter: invert(1); */
+}
+[type=checkbox]:checked {
+    background-color: white;
+}
+
+hr {
+    border-top: 1px solid white;
+}
+.notiwindow {
+    filter: invert(0);
+}
+::placeholder {
+    color: white;
+}
+#appSearch {
+    background-image: url("../../img/icons/tbSearchW.png") !important;
+    border-bottom: 1px solid white !important;
+}
+#userProfile hr {
+    margin: 0 !important;
+    background: white;
+    border: 0px solid transparent;
+}
+.taskbarPanel.activeTab {
+    background: rgba(255, 255, 255, 0.6);
+}
+.taskbarPanel:hover, .taskbarPanel.minimizedTab:hover {
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(0, 0, 0, 0.200);
+    border-radius: 5px;
+}
+.quickweanewsap:hover, .timedatetext:hover {
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    color: black !important;
+}
+#appsBtn.active {
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(0, 0, 0, 0.200);
+    border-radius: 5px;
+}
+.quickweanewsap.active, .timedatetext.active {
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(0, 0, 0, 0.200);
+    border-radius: 5px;
+    color: black !important;
+
+}
+
+.tdfi {
+    filter: invert(1);    
+}
+#abranding img {
+    filter: invert(0);
+}
+#appicons a:hover, #tasksicons a:hover {
+	-moz-border-radius:3px; 
+    -webkit-border-radius:3px;
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.200);
+    transition: 0.1s;
+    color: black !important;
+}
+.taskbarPanel.activeTab > strong {
+    margin: 9px 0px;
+    color: black !important;
+}
+.taskbarPanel:hover > strong {
+    margin: 9px 0px;
+    color: black !important;
+}
+
+
+.tab {
+    border-left: 2px solid white !important;
+}
+.context-menu ul li:hover {
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: black !important;
+}
+.context-menu, .window, #taskbar, #appsmenu.opened, #quickweanews.opened, #timedateflyout.opened {
+    border: 2px solid rgba(255, 255, 255, 0.2) ;
+}
+.cmd, .cmd div, .cmd span[data-text]:not(.cmd-inverted):not(.token):not(.emoji), .terminal, .terminal-output>:not(.raw) a, .terminal-output>:not(.raw) div, .terminal-output>:not(.raw) span[data-text]:not(.token):not(.inverted):not(.terminal-inverted):not(.cmd-inverted):not(.terminal-error):not(.emoji), .terminal.external [data-text] {
+    color: #ffffff !important;
+}

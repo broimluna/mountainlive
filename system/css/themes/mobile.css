@@ -3,8 +3,8 @@
     border-radius: 0px;
     position: fixed;
     height: 100% !important;
-    top: 36px !important;
     bottom: 42px !important;
+    top: 0 !important;
     left: 0 !important;
     border: 0px solid transparent;
     width: 100% !important;
@@ -26,9 +26,9 @@
     z-index: 999 !important;
     width: 0%;
     height: 0%;
+    top: 0 !important;
     left: 0 !important;
     right: 0 !important;
-    top: 35px !important;
     border-radius: 0px !important;
  }
  #appsmenu.opened, #appsmenu.openedtop, #timedateflyout.opened, #quickweanews.opened {
@@ -52,6 +52,7 @@
     border-top-left-radius: 5px !important;
     border-bottom-right-radius: 0px !important;
     border-bottom-left-radius: 0px !important;
+    width: fit-content !important;
 }
 .taskbarPanel img.taskpanelimg {
     margin: 0px 0px 0px 0px !important;
@@ -75,19 +76,11 @@
     top: 45vh;
 }
 
-@media screen and (max-device-width: 768px)  {
-    #userProfile {
-        right: unset !important;
-    }
-    #userProfile hr {
-        display: none !important;
-    }
-    #userProfile div {
-        min-width: calc(0px + 146px) !important;
-    }
 
-    
-}
 #window11 {
     bottom: 0 !important;
+}
+
+.quickweanewsap, .timedatetext {
+    display: none !important;
 }
