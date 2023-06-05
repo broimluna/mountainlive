@@ -34,6 +34,9 @@ hr {
 ::placeholder {
     color: white;
 }
+.screensaver {
+    filter: invert(0);
+}
 #appSearch {
     background-image: url("../../img/icons/tbSearchW.png") !important;
     border-bottom: 1px solid white !important;
@@ -76,13 +79,21 @@ hr {
 #abranding img {
     filter: invert(0);
 }
-#appicons a:hover, #tasksicons a:hover {
+#tasksicons a:hover {
 	-moz-border-radius:3px; 
     -webkit-border-radius:3px;
     background: rgba(255, 255, 255, 0.4);
     border: 1px solid rgba(0, 0, 0, 0.200);
     transition: 0.1s;
     color: black !important;
+}
+.applist li:hover {
+	background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.applist li:hover > a {
+    color: black !important;
+
 }
 .taskbarPanel.activeTab > strong {
     margin: 9px 0px;
@@ -107,4 +118,10 @@ hr {
 }
 .cmd, .cmd div, .cmd span[data-text]:not(.cmd-inverted):not(.token):not(.emoji), .terminal, .terminal-output>:not(.raw) a, .terminal-output>:not(.raw) div, .terminal-output>:not(.raw) span[data-text]:not(.token):not(.inverted):not(.terminal-inverted):not(.cmd-inverted):not(.terminal-error):not(.emoji), .terminal.external [data-text] {
     color: #ffffff !important;
+}
+.windowHeader > span:hover {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+.windowHeader > span.winclose:hover, .windowHeader > span.winmaximize:hover,.windowHeader > span.winminimize:hover {
+	background: rgba(255, 255, 255, 0.3);
 }

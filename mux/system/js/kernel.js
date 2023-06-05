@@ -1,5 +1,5 @@
-var kernelver = "5.0";
-var buildnumb = "9999";
+var kernelver = "5.1";
+var buildnumb = "10240";
 var iframei = 0
 var i = 0,
 minimizedWidth = new Array,
@@ -11,6 +11,7 @@ id;
 
 
 	window.addEventListener('load', function () {
+		this.document.getElementById("taskbar").style.display = "block";
 		$("#startup").fadeOut();
 		//Kernel Write
 		var kerver = document.getElementsByClassName("kernelver")[0];

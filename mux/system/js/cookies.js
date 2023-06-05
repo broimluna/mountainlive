@@ -156,6 +156,7 @@ function createCookie(cname,cvalue,exdays) {
 	function CheckFTUEandUsername() {
 		if (localStorage.getItem('FTUEStatus') === null)  {
 			$("#firstexperience").css("display", "block");
+
 		}
 		else {
 			void(0);
@@ -178,6 +179,18 @@ function createCookie(cname,cvalue,exdays) {
 		document.getElementsByClassName("userProfileTxt")[0].textContent = username;
 		document.getElementsByClassName("userProfileSetTxt")[0].innerText = username;
 		document.getElementsByClassName("userProfileSetTxt")[0].textContent = username;
+	}
+	function setqwnUsername() {
+		if (localStorage.hasOwnProperty('mOSUsername') != -1) {			
+			var username = localStorage.getItem("mOSUsername");
+			document.getElementsByClassName("qwnheader")[0].innerText = username;
+			document.getElementsByClassName("qwnheader")[0].textContent = username;
+
+		}
+		else {
+			document.getElementsByClassName("qwnheader")[0].innerText = "User";
+			document.getElementsByClassName("qwnheader")[0].textContent = "User";
+		}
 	}
 
 	function checkAppTitleOnTskBarCook() {
@@ -206,6 +219,7 @@ function createCookie(cname,cvalue,exdays) {
 
   function startCookies() {
 	mOSLeftBarCookie();
+	setqwnUsername();
 	checkRemoveWidgetStatusTxtCook();
 	checkAppTitleOnTskBarCook();
 	setColorCookie();
@@ -214,6 +228,7 @@ function createCookie(cname,cvalue,exdays) {
 	checkBGCookie();
 
   }
+
 
   function resetAllCookies() {
 	localStorage.removeItem("mOSColor");
@@ -224,6 +239,7 @@ function createCookie(cname,cvalue,exdays) {
 	localStorage.removeItem("mOSBG");
 	localStorage.removeItem("mOSAppTitleOnTskBar");
 	localStorage.removeItem("mOSTheme");
+	localStorage.removeItem("mOSRemoveWidgetStatusTxt");
 	alert("Settings have been deleted.")
   }
 

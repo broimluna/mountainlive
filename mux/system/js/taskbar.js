@@ -1,27 +1,19 @@
 $(document).ready(function(){
 	var appsearch = document.getElementById("appSearch");
-	$("#appicons").click(function(){
+	$(".applist").click(function(){
 		document.getElementById("appsmenu").classList.toggle("opened");
-		document.getElementById("appsmenu").classList.toggle("openedtop");
 		appsearch.value = '';
-		$("#appicons li").css('display', 'block')
 	  }, function(){
 		document.getElementById("appsmenu").classList.remove("opened");
-		document.getElementById("appsmenu").classList.remove("openedtop");
 		document.getElementById("appsBtn").classList.remove("active");
 		appsearch.value = '';
-		tasksearch.value = '';
-		$("#appicons li").css('display', 'block')
 
 	});
   $("#settingsUP").click(function(){
     document.getElementById("appsmenu").classList.toggle("opened");
-	document.getElementById("appsmenu").classList.toggle("openedtop");
 	appsearch.value = '';
-	tasksearch.value = '';
     }, function(){
     document.getElementById("appsmenu").classList.remove("opened");
-	document.getElementById("appsmenu").classList.remove("openedtop");
 	document.getElementById("appsBtn").classList.remove("active");
 	appsearch.value = '';
 
@@ -31,24 +23,7 @@ $(document).ready(function(){
 
 
 
-function appSearch() {
-	var input, filter, ul, li, a, i, txtValue;
-	input = document.getElementById("appSearch");
-	filter = input.value.toUpperCase();
-	ul = document.getElementById("appicons");
-	li = ul.getElementsByTagName("li");
-	for (i = 0; i < li.length; i++) {
-			a = li[i].getElementsByTagName("a")[0];
-			txtValue = a.textContent || a.innerText;
-			if (txtValue.toUpperCase().indexOf(filter) > -1) {
-					li[i].style.display = "";
-			} else {
-					li[i].style.display = "none";
-			}
-	}
-	document.getElementById("appsmenu").classList.add("opened");
 
-}
 function taskSearch() {
 	var input, filter, ul, li, a, i, txtValue;
 	input = document.getElementById("taskSearch");
@@ -67,7 +42,23 @@ function taskSearch() {
 	document.getElementById("appsmenu").classList.add("openedtop");
 
 }
+function appSearch() {
+	var input, filter, ul, li, a, i, txtValue;
+	input = document.getElementById("appSearch");
+	filter = input.value.toUpperCase();
+	ul = document.getElementsByClassName("applist")[0];
+	li = ul.getElementsByTagName("li");
+	for (i = 0; i < li.length; i++) {
+			a = li[i].getElementsByTagName("a")[0];
+			txtValue = a.textContent || a.innerText;
+			if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					li[i].style.display = "";
+			} else {
+					li[i].style.display = "none";
+			}
+	}
 
+}
 
 
 function appstoggle() {
@@ -82,6 +73,7 @@ function timedatetoggle() {
 	document.getElementById("timedateflyout").classList.toggle("opened");
 	document.getElementsByClassName("timedatetext")[0].classList.toggle("active");
 }
+
 
 function startDate(){
   const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -114,9 +106,13 @@ function startDate(){
 function quiloadWeather() {
     var weather = $('.quickweanewsap')
 	var quiweather = $('#quiweather')
-	var quiweatherfull = $('.quiweatherfull')
+	var quiweathertxt = $('.quiweathertxt')
     var weaurl = 'https://api.openweathermap.org/data/2.5/weather' // OpenWeather API url
-    var weaapiKey = '10917464510633b9565e55f5b53585ce' // API key from OpenWeather
+	const apikeys = ["24a64a2d24697b4b292500aaa627a25e", "10917464510633b9565e55f5b53585ce", "2c202a47f8f483bce4461f360fbef98b", "95ce14abd8bc66f57c8ceba47576c785"]; 
+    const random = Math.floor(Math.random() * apikeys.length);
+    var weaapiKey = apikeys[random] // API key from OpenWeather
+	console.log(weaapiKey);
+
 
     function success(position) {
         var latitude = position.coords.latitude
@@ -176,7 +172,7 @@ function quiloadWeather() {
                     "<a><img src='system/img/icons/widgets.png' style='vertical-align: middle;' width='46' height='46'></img></a>" + Math.round(data.main.temp) + '°C, ' + weatherstatus
                 )
 				quiweather.html(
-                 Math.round(data.main.temp) + '°C, ' + weatherstatus
+                 Math.round(data.main.temp) + '°C outside, ' + weatherstatus
                 )
             }
         )
@@ -184,14 +180,14 @@ function quiloadWeather() {
 
     function error() {
 		weather.html("<a><img src='system/img/icons/widgets.png' style='vertical-align: middle;' width='46' height='46'></img></a>" +"Couldn't fetch weather...")
-		quiweatherfull.html('Unable to retrieve your location for weather')
+		quiweathertxt.html('Unable to retrieve your location for weather')
 	}
 
 
     navigator.geolocation.getCurrentPosition(success, error)
 
     weather.html("<a><img src='system/img/icons/widgets.png' style='vertical-align: middle;' width='46' height='46'></img></a>" + 'Fetching current weather...')
-	quiweather.html('fetching current weather...')
+	quiweather.html('fetching the weather...')
 	
 }
 
@@ -206,67 +202,5 @@ function quiloadDate() {
     $('#quidate').text(dateString)
 }
 
-function addAppTitleTaskbar() {
-	var checkBox = document.getElementById("AppTitleOnTaskBarPanelChk");
-	
-	if(checkBox.checked == true) {
-	$(".taskbarPanel").each(function() {
-		$(".taskbarPanel").css("fontSize", "17px");
-		$(".taskbarPanel img").addClass("taskpanelimg");
-		localStorage.setItem("mOSAppTitleOnTskBar", "true")
-	})
-}
-	else {
-		$(".taskbarPanel").each(function() {
-			$(".taskbarPanel").css("fontSize", "0px");
-			$(".taskbarPanel img").removeClass("taskpanelimg");
-			localStorage.setItem("mOSAppTitleOnTskBar", "false")
-		})
-	}
-}
-function addAppTitleTaskbarStp() {
-	var checkBox = document.getElementById("AppTitleOnTaskBarPanelStp");
-	var checkBoxSettings = document.getElementById("AppTitleOnTaskBarPanelChk");
-	
-	if(checkBox.checked == true) {
-	$(".taskbarPanel").each(function() {
-		$(".taskbarPanel").css("fontSize", "17px");
-		$(".taskbarPanel img").addClass("taskpanelimg");
-		localStorage.setItem("mOSAppTitleOnTskBar", "true")
-		checkBoxSettings.checked = true
-	})
-}
-	else {
-		$(".taskbarPanel").each(function() {
-			$(".taskbarPanel").css("fontSize", "0px");
-			$(".taskbarPanel img").removeClass("taskpanelimg");
-			localStorage.setItem("mOSAppTitleOnTskBar", "false")
-			checkBoxSettings.checked = false
-		})
-	}
-}
 
-function RemoveWidgetStatusTxt() {
-	var checkBox = document.getElementById("RemoveWidgetStatusTxtChk");
-	
-	if(checkBox.checked == true) {
-		$(".quickweanewsap").css("fontSize", "0px");
-		$(".quickweanewsap").css("left", "unset");
-		$(".quickweanewsap").css("position", "relative");
-		$(".quickweanewsap").css("top", "calc(0% + -27px)");     
-		$("#quickweanews").css("margin", "0 auto");                      
-		$("#quickweanews").css("left", "0");                      
-		localStorage.setItem("mOSRemoveWidgetStatusTxt", "true")
-}
-	else {
-		$(".quickweanewsap").css("fontSize", "");
-		$(".quickweanewsap").css("left", "");
-		$(".quickweanewsap").css("position", "");
-		$(".quickweanewsap").css("top", "");   
-		$("#quickweanews").css("margin", "");                      
-		$("#quickweanews").css("left", ""); 
-		localStorage.setItem("mOSRemoveWidgetStatusTxt", "false")
-		
-	}
-}
 

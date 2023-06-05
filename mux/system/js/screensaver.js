@@ -9,7 +9,7 @@
       el.style.position = "fixed";
 
       el.className = "Screensaver";
-      el.innerHTML = `<div><div><img style="width: 100px !important; height:100px !important;"src='system/img/systemlogo.png'></div></div>`;
+      el.innerHTML = `<div><div><img class="screensaver" style="width: 100px !important; height:100px !important;"src='system/img/systemlogo.png'></div></div>`;
 
       const width = el.offsetWidth;
       const height = el.offsetHeight;

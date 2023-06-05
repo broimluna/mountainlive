@@ -24,6 +24,9 @@ button {
     .taskbartab {
         display: none !important;
     }
+    .addAppTitleTaskbarTxt, #AppTitleOnTaskBarPanelStp {
+        display: none;
+    }
 }
 
 ::placeholder {
@@ -334,6 +337,7 @@ iframe {
     transition: 0.2s;
     bottom: 7px;
     /* transform: scale(1.20); */
+    display: none;
 }
 .windowHeader {
     background: transparent;
@@ -358,6 +362,7 @@ iframe {
     top: -2px;
     left: 2px !important;
     border-radius: 7px;
+    cursor: default;
 }
 
 .windowHeader > span:hover {
@@ -429,7 +434,7 @@ iframe {
     bottom: 6px;
     border-radius: 3px;
     color: black;
-    cursor: unset;
+    cursor: default;
 }
 .taskbarPanel.activeTab {
     background: rgba(0, 0, 0, 0.6);
@@ -494,6 +499,7 @@ iframe {
     text-align: right;
     font-size: 15px;
     transition: 0.2s;
+    cursor: default;
 }
 .quickweanewsap {
     position: absolute;
@@ -510,6 +516,7 @@ iframe {
     font-family: Segoe UI;
     font-size: 15px;
     transition: 0.2s;
+    cursor: default;
 }
 .quickweanewsap:hover, .timedatetext:hover {
     background: rgba(0, 0, 0, 0.4);
@@ -526,9 +533,6 @@ iframe {
 .quickweanewsap a > img {
         vertical-align: middle;
         margin: 0 1px 0 0;
-}
-.widgetstask {
-    display: none !important;
 }
 .quickfeatures {
     background: transparent;
@@ -552,51 +556,61 @@ iframe {
     padding: 0px 0px 2px 5px !important;
 }
 #appsmenu {
-    position: fixed;
-    width: 260px;
-    margin: 0 auto;
-    height: 0px;
-    left: 5px;
+    position: absolute;
+    bottom: 64px;
+    left: 0;
     right: 0;
-    opacity: 0;
-    bottom: 68px;
-    z-index: 2000;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.6);
+    width: 300px;
+    height: 0;
+    border-radius: 8px;
     border: 2px solid transparent;
-    transition: 0.5s;
-    background-size: auto;
+    visibility: hidden;
     backdrop-filter: blur(5px);
-    background: rgba(255, 255, 255, 0.600);
-    -webkit-backdrop-filter: blur(5px);
-    border-radius: 16px;
+    transition: 0.5s;
+    opacity: 0;
 }
-
-
 #appsmenu.opened {
-    height: 390px; 
+    height: 320px;
     border: 2px solid rgba(0, 0, 0, 0.200);
+    visibility: visible;
     opacity: 1;
 }
-
-#appsmenu.openedtop {
-    height: 390px;
-    border: 2px solid rgba(0, 0, 0, 0.200);
-    opacity: 1;
-    margin: 0 auto !important;
-    top: 48px;
-    bottom: unset !important;
+.applist {
+	position: relative;
+	z-index: 10;
+	top: 2px;
+	height: 74%;
+	left: 2px;
+	overflow-y: scroll;
+    text-align: center;
+}
+.applist li {
+    display: inline-table;
+    cursor: pointer;
+    padding: 4px 6px;
+    margin: 1px 0px;
+    border-radius: 5px;
+    transition: 0.2s;
+    border: 1px solid transparent;
 }
 
-#appsmenu.openedtop > #appSearch {
-   display: none !important;
+.applist li:hover {
+	background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.2);}
+.applist li:hover > a {
+	color: #FFF;
 }
-#appsmenu.openedtop > #appicons {
-    margin: 0px 0 7px 0px !important;
-    height: 88%;
- }
+.applist a > img {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        display: table;
+        margin: 2px auto -16px auto;
+}
 
-#appicons, #tasksicons {
+#tasksicons {
 	background:transparent;
 	border:solid 1px transparent;
 	margin: 50px 0 7px 0px;
@@ -613,7 +627,7 @@ iframe {
     margin: 0px 0 7px 0px;
     height: 85%;
 }
-#appicons a, #tasksicons a {
+#tasksicons a {
     border: solid 1px transparent;
     display: block; 
     padding:3px; 
@@ -625,7 +639,7 @@ iframe {
     transition: 0.2s;
 }
 
-#appicons a:hover, #tasksicons a:hover {
+#tasksicons a:hover {
 	-moz-border-radius:3px; 
     -webkit-border-radius:3px;
     background: #00000045;
@@ -634,12 +648,12 @@ iframe {
     color: white;
 }
 
-#appicons a img, #tasksicons a img {
+#tasksicons a img {
     border:0; 
     vertical-align:middle; 
     margin:0 5px 0 0;
 }
-#appicons a br, #tasksicons a br {
+#tasksicons a br {
     display: none;
 }
 .appsHtxt {
@@ -695,12 +709,12 @@ iframe {
 }
 #appSearch {
     background: transparent;
-    padding: 6% 12%;
+    padding: 10px 30px;
     margin: 0px 0px;
-    position: absolute;
+    position: relative;
     top: 0px;
     right: 0px;
-    width: 76%;
+    width: 79.4%;
     line-height: 14px;
     overflow-x: scroll;
     left: -2px;
@@ -708,7 +722,6 @@ iframe {
     border-color: transparent;
     border-bottom: 1px solid black !important;
     outline: none;
-    /* padding: 9px 4px 9px 4px; */
     background-image: url("../../img/icons/tbSearchD.png");
     background-size: 14px;
     background-repeat: no-repeat;
@@ -716,6 +729,9 @@ iframe {
     color: black;
 }
 
+.screensaver {
+    filter: invert(1);
+}
 
 
 #taskSearch {
@@ -877,7 +893,7 @@ iframe {
 
 #quinews {
     display: block;
-    height: 70%;
+    height: 67%;
     overflow-y: scroll;
 }
 #quinews div {
@@ -978,6 +994,7 @@ iframe {
     left: 10px;
     position: relative;
     color: white !important;
+    margin: 0 4px 0 0;
 }
 #firstexperiencewindow > #usrinpt::placeholder {
    color: white !important;
@@ -985,16 +1002,14 @@ iframe {
 
 
 .FTUEtext {
-    left: 0;
-    right: 0;
-    line-height: 200px;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: -100px;
-    font-size: 45px;
+    font-size: 45px !important;
+    left: 0 !important;
+    line-height: 200px !important;
+    margin-top: -100px !important;
     position: absolute !important;
-    top: 50%;
-    width: 100%;
+    text-align: center !important;
+    top: 50% !important;
+    width: 100% !important;
 }
 
 .circle1{

@@ -58,6 +58,8 @@ function finishFTUE() {
 		document.getElementsByClassName("userProfileTxt")[0].textContent = "User";
 		document.getElementsByClassName("userProfileSetTxt")[0].innerText = "User";
 		document.getElementsByClassName("userProfileSetTxt")[0].textContent = "User";
+		document.getElementsByClassName("qwnheader")[0].innerText = "User";
+		document.getElementsByClassName("qwnheader")[0].textContent = "User";
 	}
 	else {
 		document.cookie = "mOSUsername=" + usrInpt
@@ -68,6 +70,8 @@ function finishFTUE() {
 		document.getElementsByClassName("userProfileTxt")[0].textContent = usrInpt;
 		document.getElementsByClassName("userProfileSetTxt")[0].innerText = usrInpt;
 		document.getElementsByClassName("userProfileSetTxt")[0].textContent = usrInpt;
+		document.getElementsByClassName("qwnheader")[0].innerText = usrInpt;
+		document.getElementsByClassName("qwnheader")[0].textContent = usrInpt;
 	}
 }
 

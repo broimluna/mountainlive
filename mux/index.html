@@ -12,7 +12,7 @@
 	<script src="system/js/desktop.js"></script>	
 	<script src="system/js/screensaver.js"></script>
 	<script src="system/js/taskbar.js"></script>
-	<script src="system/js/cookies.js"></script>								
+	<script src="system/js/cookies.js"></script>	
 	<link rel="stylesheet" type="text/css" href="system/css/themes/default.css" />
 	<link rel="alternate stylesheet 2" type="text/css" title="classic" href="system/css/themes/classic.css" />
 	<link rel="alternate stylesheet 3" type="text/css" title="mobile" href="system/css/themes/mobile.css" />
@@ -243,7 +243,7 @@
 	
 		
 		
-		<div id="appsmenu">
+	<!--	<div id="appsmenu">
 			<input type="text" id="appSearch" onkeyup="appSearch()" placeholder="Click here to search for an app" title="Click here to search for an app">
 			<div id="appicons">
 				<center>
@@ -264,13 +264,34 @@
 				<div><img border="0" class="pfpimage" alt="" src="system/img/pfp.png" width="32" height="32"><br><a class="userProfileTxt">User</a></div>
 				<a id="settingsUP" class="openWindow" data-id="8"><img border="0" alt="" src="system/img/icons/settings.png" width="32" height="32"></a>
 			</div>
+		</div>-->
+
+		<div id="appsmenu">
+			<input type="text" id="appSearch" onkeyup="appSearch()" placeholder="Click here to search for an app" title="Click here to search for an app">
+			<div class="applist">
+				<li class="openWindow" data-id="0"><a><img border="0" alt="" src="system/img/icons/paint.png" width="32" height="32"><br>Paint</a></li>
+				<li class="openWindow" data-id="1"><a><img border="0" alt="" src="system/img/icons/notepad.png" width="32" height="32"><br>Notepad</a></li>
+				<li class="openWindow" data-id="2"><a><img border="0" alt="" src="system/img/icons/calendar.png" width="32" height="32"><br>Calendar</a></li>
+				<li class="openWindow" data-id="3"><a><img border="0" alt="" src="system/img/icons/calculator.png" width="32" height="32"><br>Calculator</a></li>
+				<li class="openWindow" data-id="6"><a><img border="0" alt="" src="system/img/icons/minesweeper.png" width="32" height="32"><br>Minesweeper</a></li>
+				<li class="openWindow" data-id="5"><a><img border="0" alt="" src="system/img/icons/vmbox.png" width="32" height="32"><br>VMBox</a></li>
+				<li class="openWindow" data-id="4"><a><img border="0" alt="" src="system/img/icons/bronze.png" width="32" height="32"><br>Bronze </a></li>
+				<li class="openWindow" data-id="7"><a ><img border="0" alt="" src="system/img/icons/mediaplayer.png" width="32" height="32"><br>Media Player</a></li>
+				<li class="openWindow" data-id="9"><a><img border="0" alt="" src="system/img/icons/terminal.png" width="32" height="32"><br>Terminal</a></li>
+				<li class="openWindow" data-id="10"><a><img border="0" alt="" src="system/img/icons/tasklist.png" width="32" height="32"><br>Task List</a></li>   
+			</div>
+			<div id="userProfile">
+				<hr>
+				<div><img border="0" class="pfpimage" alt="" src="system/img/pfp.png" width="32" height="32"><br><a class="userProfileTxt">User</a></div>
+				<a id="settingsUP" class="openWindow" data-id="8"><img border="0" alt="" src="system/img/icons/settings.png" width="32" height="32"></a>
+			</div>
 		</div>
 
 		<a id="watermark"></a>
 
 		<div id="quickweanews">
-			<h1>Welcome back!</h1>
-			<h2 class="quiweatherfull">It is currently <span id="quiweather"></span></h2>
+			<h1>Welcome back, <a class="qwnheader"></a>!</h1>
+			<h2 class="quiweathertxt">It is currently <span id="quiweather"></span></h2>
 			<hr>
 			<div id="quinews">
 			<script src="https://rss.bloople.net/?url=https%3A%2F%2Fwww.theverge.com%2Frss%2Findex.xml&showtitle=false&type=js"></script>
@@ -300,7 +321,7 @@
 				 <br>
 				 <h2>Welcome to mountainOS.<br>Let's set up your account and user interface.</h2>
 				 <br>
-				 <input id="usrinpt" name="usrinpt" type="text" maxlength="10" placeholder="Enter your username..." required="required" class="textinput">
+				 <input id="usrinpt" name="usrinpt" type="text" maxlength="10" placeholder="Enter your username..." class="textinput" required>
 				 <br>
 				 <br>
 				 <a>Choose a profile picture, or leave it blank.</a>
@@ -320,6 +341,7 @@
 				 <br>
 				 <br>
 				 <button onclick="finishFTUE()">Finish setup.</button>
+				 
 				</div>
 			  </div>
 

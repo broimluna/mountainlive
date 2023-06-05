@@ -79,7 +79,6 @@ reader.onloadend = function() {
 	var base64com1 = base64com0.replace("data:image", "ebubjnbhf");
 	var base64com2 = base64com1.replace("base64", "moslssecurity");
 	var base64fullcom = base64com2.replaceAll("F", "'");
-    console.log(base64fullcom);
     output.src = base64data;
 	setoutput.src = base64data;
     localStorage.setItem("mOSpfp", base64fullcom);
@@ -121,24 +120,88 @@ reader.onloadend = function() {
 		var usrInpt = document.getElementById("usrsetinpt").value;
 		if ( $('#usrsetinpt').val() === "" ) 
 	{
-		document.cookie = "mOSUsername=User"
 		localStorage.setItem("mOSUsername", "User")
 		document.getElementsByClassName("userProfileTxt")[0].innerText = "User";
 		document.getElementsByClassName("userProfileTxt")[0].textContent = "User";
 		document.getElementsByClassName("userProfileSetTxt")[0].innerText = "User";
 		document.getElementsByClassName("userProfileSetTxt")[0].textContent = "User";
+		document.getElementsByClassName("qwnheader")[0].innerText = "User";
+		document.getElementsByClassName("qwnheader")[0].textContent = "User";
 	}
 	else {
 	document.getElementsByClassName("userProfileTxt")[0].innerText = usrInpt;
 	document.getElementsByClassName("userProfileTxt")[0].textContent = usrInpt;
 	document.getElementsByClassName("userProfileSetTxt")[0].innerText = usrInpt;
 	document.getElementsByClassName("userProfileSetTxt")[0].textContent = usrInpt;
+	document.getElementsByClassName("qwnheader")[0].innerText = usrInpt;
+	document.getElementsByClassName("qwnheader")[0].textContent = usrInpt;
 	
 	
-	document.cookie = "mOSUsername=" + usrInpt
 	localStorage.setItem("mOSUsername", usrInpt)
 	  }
 	}
+	function addAppTitleTaskbar() {
+		var checkBox = document.getElementById("AppTitleOnTaskBarPanelChk");
+		
+		if(checkBox.checked == true) {
+		$(".taskbarPanel").each(function() {
+			$(".taskbarPanel").css("fontSize", "17px");
+			$(".taskbarPanel img").addClass("taskpanelimg");
+			localStorage.setItem("mOSAppTitleOnTskBar", "true")
+		})
+	}
+		else {
+			$(".taskbarPanel").each(function() {
+				$(".taskbarPanel").css("fontSize", "0px");
+				$(".taskbarPanel img").removeClass("taskpanelimg");
+				localStorage.setItem("mOSAppTitleOnTskBar", "false")
+			})
+		}
+	}
+	function addAppTitleTaskbarStp() {
+		var checkBox = document.getElementById("AppTitleOnTaskBarPanelStp");
+		var checkBoxSettings = document.getElementById("AppTitleOnTaskBarPanelChk");
+		
+		if(checkBox.checked == true) {
+		$(".taskbarPanel").each(function() {
+			$(".taskbarPanel").css("fontSize", "17px");
+			$(".taskbarPanel img").addClass("taskpanelimg");
+			localStorage.setItem("mOSAppTitleOnTskBar", "true")
+			checkBoxSettings.checked = true
+		})
+	}
+		else {
+			$(".taskbarPanel").each(function() {
+				$(".taskbarPanel").css("fontSize", "0px");
+				$(".taskbarPanel img").removeClass("taskpanelimg");
+				localStorage.setItem("mOSAppTitleOnTskBar", "false")
+				checkBoxSettings.checked = false
+			})
+		}
+	}
 	
+	function RemoveWidgetStatusTxt() {
+		var checkBox = document.getElementById("RemoveWidgetStatusTxtChk");
+		
+		if(checkBox.checked == true) {
+			$(".quickweanewsap").css("fontSize", "0px");
+			$(".quickweanewsap").css("left", "unset");
+			$(".quickweanewsap").css("position", "relative");
+			$(".quickweanewsap").css("top", "calc(0% + -27px)");     
+			$("#quickweanews").css("margin", "0 auto");                      
+			$("#quickweanews").css("left", "0");                      
+			localStorage.setItem("mOSRemoveWidgetStatusTxt", "true")
+	}
+		else {
+			$(".quickweanewsap").css("fontSize", "");
+			$(".quickweanewsap").css("left", "");
+			$(".quickweanewsap").css("position", "");
+			$(".quickweanewsap").css("top", "");   
+			$("#quickweanews").css("margin", "");                      
+			$("#quickweanews").css("left", ""); 
+			localStorage.setItem("mOSRemoveWidgetStatusTxt", "false")
+			
+		}
+	}
 	
 	

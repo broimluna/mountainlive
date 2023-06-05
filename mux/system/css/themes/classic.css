@@ -5,6 +5,7 @@ a, p, h1, h2, h3, li, div, input, strong, button, textarea, .menus {
 #appSearch {
     background-image: url("../../img/icons/tbSearchW.png") !important;
     border-bottom: 1px solid white !important;
+    display: none;
 }
 ::placeholder {
     color: white;
@@ -76,23 +77,8 @@ a, p, h1, h2, h3, li, div, input, strong, button, textarea, .menus {
     height: 15px;
     border-radius: 5px;
 }
-.tasksearch {
-    position: relative !important;
-    margin: unset !important;
-    display: none;
-    transition: 0.5s;
-    top: unset !important;
-    bottom: 19px !important;
-    height: calc(0% + 32px) !important;
-    visibility: visible;
-    opacity: 1;
-}
 
-#appsmenu.openedtop, #quickweanews.opened {
-    margin: unset !important;
-    bottom: 50px !important;
-    top: unset !important;
-}
+
 #quickweanews {
     top: unset !important;
     bottom: 60px;
@@ -102,4 +88,32 @@ a, p, h1, h2, h3, li, div, input, strong, button, textarea, .menus {
 }
 .betweenapptitlentsksrchbox, #taskbarSearchBoxchk, .taskbarSearchBoxTxt {
     display: inline-block;
+}
+.applist a > img {
+    text-align: unset !important;
+    margin-left: unset !important;
+    margin-right: unset !important;
+    display: unset !important;;
+    float: left;
+    margin: 0 4px 0 0 !important;
+}
+.applist a {
+        line-height: 0px;
+        vertical-align: top;
+}
+.applist {
+    display: grid;
+    text-align: unset !important;
+    height: 85%;
+    left: 0;  
+}
+.applist li {
+    width: 90%;
+    margin: 0 auto;
+}
+#appsmenu.opened {
+    height: 350px;
+}
+#appsmenu {
+    width: 250px;
 }
