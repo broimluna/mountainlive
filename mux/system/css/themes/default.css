@@ -21,10 +21,7 @@ button {
     .taskbarPanel img.taskpanelimg {
         margin: 0px 0px 0px 0px !important;
     }
-    .taskbartab {
-        display: none !important;
-    }
-    .addAppTitleTaskbarTxt, #AppTitleOnTaskBarPanelStp {
+    .addAppTitleTaskbarTxt, #AppTitleOnTaskBarPanelStp, #AppTitleOnTaskBarPanelChk, .apptitlecenterwidgets {
         display: none;
     }
 }
@@ -477,7 +474,9 @@ iframe {
 #appsBtn {
         font-size: 0px !important;
         top: -5px;
-        height: 103.8%;
+        height: 104%;
+        left: -4.7px;
+        margin: 0 -8px 0 0;
 }
 #appsBtn.active {
     background: rgba(0, 0, 0, 0.6);
@@ -532,7 +531,7 @@ iframe {
 }
 .quickweanewsap a > img {
         vertical-align: middle;
-        margin: 0 1px 0 0;
+        margin: 0 -2px 0 0;
 }
 .quickfeatures {
     background: transparent;

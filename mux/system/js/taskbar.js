@@ -102,22 +102,7 @@ function startDate(){
     setTimeout(startDate, 1000);
 }
 
-function newWeatherAPI() {
-	const settings = {
-		async: true,
-		crossDomain: true,
-		url: 'https://weatherapi-com.p.rapidapi.com/current.json?q=53.1%2C-0.13',
-		method: 'GET',
-		headers: {
-			'X-RapidAPI-Key': '8fa374a51e304822a0132755230906',
-			'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
-		}
-	};
-	
-	$.ajax(settings).done(function (response) {
-		console.log(response);
-	});
-}
+
 
 //Quick Features
 function quiloadWeather() {
@@ -136,157 +121,20 @@ function quiloadWeather() {
 	var iconurl = "https:" + data.current.condition.icon;
 
 
-	if (data.current.temp_c < -10) {
-		var weatherstatus = "Very cold outside."
-	}
-	else {
-		if (data.current.temp_c < -0 ) {
-			var weatherstatus = "Cooling down."
-		} 
-	else {
-		if (data.current.temp_c < 0 ) {
-			var weatherstatus = "Cold outside."
-		}
 	
-	else {
-		if (data.current.temp_c < 5 ) {
-			var weatherstatus = "Cold, but heating up."
-		}
-	else {
-		if (data.current.temp_c < 10 ) {
-			var weatherstatus = "Good temperature."
-		}
-	else {
-		if (data.current.temp_c < 15 ) {
-			var weatherstatus = "Heating up."
-		}
-	else {
-		if (data.current.temp_c < 20 ) {
-			var weatherstatus = "Hot outside."
-		}
-		else {
-			if (data.current.temp_c < 30 ) {
-				var weatherstatus = "Getting even hotter."
-			}
-			
-	
-	else {
-		if (data.current.temp_c < 35 ) {
-			var weatherstatus = "Hot outside, go in a pool!"
-		}
-	}
-}
-}
-}
-}
-} 
-}
-}
+
 	weather.html(
 		'<a><img src='+iconurl+' style="vertical-align: middle;" width="46" height="46"></img></a>' + Math.round(data.current.temp_c) + '°C, ' + data.current.condition.text
 	)
 	quiweather.html(
 	 Math.round(data.current.temp_c) + '°C, ' + data.current.condition.text
 	)
-}
-	)
-
-
-
-
-
-
-
-}
-
-
-
-
-function quiloadWeather2() {
-		var weather = $('.quickweanewsap')
-		var quiweather = $('#quiweather')
-		var quiweathertxt = $('.quiweathertxt')
-		var weaurl = 'https://api.weatherapi.com/v1/current.json' // OpenWeather API url
-
-		const apikeys = "8fa374a51e304822a0132755230906"; 
-		console.log(apikeys);
-
-
-		function success() {
-
-
-			$.getJSON(
-				weaurl + '?key=' + apikeys + '&q=auto:ip&aqi=no',
-            function(data) {
-				
-				if (data.current.temp_c < -10) {
-					var weatherstatus = "Very cold outside."
-				}
-				else {
-					if (data.current.temp_c < -0 ) {
-						var weatherstatus = "Cooling down."
-					} 
-				else {
-					if (data.current.temp_c < 0 ) {
-						var weatherstatus = "Cold outside."
-					}
-				
-				else {
-					if (data.current.temp_c < 5 ) {
-						var weatherstatus = "Cold, but heating up."
-					}
-				else {
-					if (data.current.temp_c < 10 ) {
-						var weatherstatus = "Good temperature."
-					}
-				else {
-					if (data.current.temp_c < 15 ) {
-						var weatherstatus = "Heating up."
-					}
-				else {
-					if (data.current.temp_c < 20 ) {
-						var weatherstatus = "Hot outside."
-					}
-					else {
-						if (data.current.temp_c < 30 ) {
-							var weatherstatus = "Getting even hotter."
-						}
-						
-				
-				else {
-					if (data.current.temp_c < 35 ) {
-						var weatherstatus = "Hot outside, go in a pool!"
-					}
-				}
-			}
-			}
-		}
-		}
-	} 
-}
-}
-                weather.html(
-                    "<a><img src='system/img/icons/widgets.png' style='vertical-align: middle;' width='46' height='46'></img></a>" + Math.round(data.current.temp_c) + '°C, ' + weatherstatus
-                )
-				quiweather.html(
-                 Math.round(data.current.temp_c) + '°C outside, ' + weatherstatus
-                )
-            }
-        )
-    }
-
-    function error() {
-		weather.html("<a><img src='system/img/icons/widgets.png' style='vertical-align: middle;' width='46' height='46'></img></a>" +"Couldn't fetch weather...")
-		quiweathertxt.html('Unable to retrieve your location for weather')
+	})
 	}
 
 
-    navigator.geolocation.getCurrentPosition(success, error)
 
-    weather.html("<a><img src='system/img/icons/widgets.png' style='vertical-align: middle;' width='46' height='46'></img></a>" + 'Fetching current weather...')
-	quiweather.html('fetching the weather...')
-	
-}
+
 
 
 

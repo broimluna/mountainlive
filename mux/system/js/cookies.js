@@ -217,10 +217,26 @@ function createCookie(cname,cvalue,exdays) {
 		}
 	}
 
+	function checkLeftAlignedTaskbarCook() {
+		if (localStorage.getItem('mOSLeftAlignedTaskbar') === "true")  {
+			var checkBoxSettings = document.getElementById("LeftAlignedTaskbarChk");
+			$("#taskbar").css("text-align", "left");
+			$("#appsmenu").css("margin", "unset");
+			$("#appsmenu").css("left", "5px");
+			$(".quickweanewsap").css("left", "unset");
+			$(".quickweanewsap").css("position", "relative");
+			$(".quickweanewsap").css("top", "calc(0% + -27px)");     
+			$("#quickweanews").css("margin", "unset");                      
+			$("#quickweanews").css("left", "5px");                    
+		checkBoxSettings.checked = true
+		}
+	}
+
   function startCookies() {
 	mOSLeftBarCookie();
 	setqwnUsername();
 	checkRemoveWidgetStatusTxtCook();
+	checkLeftAlignedTaskbarCook();
 	checkAppTitleOnTskBarCook();
 	setColorCookie();
 	set_style_from_cookie();
@@ -240,6 +256,8 @@ function createCookie(cname,cvalue,exdays) {
 	localStorage.removeItem("mOSAppTitleOnTskBar");
 	localStorage.removeItem("mOSTheme");
 	localStorage.removeItem("mOSRemoveWidgetStatusTxt");
+	localStorage.removeItem("mOSLeftAlignedTaskbar");
+
 	alert("Settings have been deleted.")
   }
 
