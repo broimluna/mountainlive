@@ -112,88 +112,84 @@ function startDate(){
 
 //Quick Features
 function quiloadWeather() {
-    var weather = $('.quickweanewsap')
-	var quiweather = $('#quiweather')
-	var quiweatherfull = $('.quiweatherfull')
-    var weaurl = 'https://api.openweathermap.org/data/2.5/weather' // OpenWeather API url
-    var weaapiKey = '10917464510633b9565e55f5b53585ce' // API key from OpenWeather
-
-    function success(position) {
-        var latitude = position.coords.latitude
-        var longitude = position.coords.longitude
-
-        $.getJSON(
-            weaurl + '?units=metric&lat=' + latitude + '&lon=' + longitude + '&appid=' + weaapiKey,
-            function(data) {
-				
-				if (data.main.temp < -10) {
-					var weatherstatus = "Very cold outside."
-				}
-				else {
-					if (data.main.temp < -0 ) {
-						var weatherstatus = "Cooling down."
-					} 
-				else {
-					if (data.main.temp < 0 ) {
-						var weatherstatus = "Cold outside."
-					}
-				
-				else {
-					if (data.main.temp < 5 ) {
-						var weatherstatus = "Cold, but heating up."
-					}
-				else {
-					if (data.main.temp < 10 ) {
-						var weatherstatus = "Good temperature."
-					}
-				else {
-					if (data.main.temp < 15 ) {
-						var weatherstatus = "Heating up."
-					}
-				else {
-					if (data.main.temp < 20 ) {
-						var weatherstatus = "Hot outside."
-					}
-					else {
-						if (data.main.temp < 30 ) {
-							var weatherstatus = "Getting even hotter."
-						}
-						
-				
-				else {
-					if (data.main.temp < 35 ) {
-						var weatherstatus = "Hot outside, go in a pool!"
-					}
-				}
-			}
-			}
-		}
-		}
-	} 
-}
-}
-                weather.html(
-                    "<a><img src='system/img/icons/widgets.png' style='vertical-align: middle;' width='46' height='46'></img></a>" + Math.round(data.main.temp) + '°C, ' + weatherstatus
-                )
-				quiweather.html(
-                 Math.round(data.main.temp) + '°C, ' + weatherstatus
-                )
-            }
-        )
-    }
-
-    function error() {
-		weather.html("<a><img src='system/img/icons/widgets.png' style='vertical-align: middle;' width='46' height='46'></img></a>" +"Couldn't fetch weather...")
-		quiweatherfull.html('Unable to retrieve your location for weather')
-	}
-
-
-    navigator.geolocation.getCurrentPosition(success, error)
-
-    weather.html("<a><img src='system/img/icons/widgets.png' style='vertical-align: middle;' width='46' height='46'></img></a>" + 'Fetching current weather...')
-	quiweather.html('fetching current weather...')
+		var weather = $('.quickweanewsap')
+		var quiweather = $('#quiweather')
+		var quiweathertxt = $('.quiweathertxt')
+		var api = 'https://api.weatherapi.com/v1/current.json' // OpenWeather API url
+		var apikey = "8fa374a51e304822a0132755230906"; 
 	
-}
+	
+		
+		$.getJSON(api + "?key=" + apikey + "&q=auto:ip&aqi=no", function(data) {
+		// JSON result in `data` variable
+		console.log(data)
+	
+		var iconurl = "https:" + data.current.condition.icon;
+	
+	
+		if (data.current.temp_c < -10) {
+			var weatherstatus = "Very cold outside."
+		}
+		else {
+			if (data.current.temp_c < -0 ) {
+				var weatherstatus = "Cooling down."
+			} 
+		else {
+			if (data.current.temp_c < 0 ) {
+				var weatherstatus = "Cold outside."
+			}
+		
+		else {
+			if (data.current.temp_c < 5 ) {
+				var weatherstatus = "Cold, but heating up."
+			}
+		else {
+			if (data.current.temp_c < 10 ) {
+				var weatherstatus = "Good temperature."
+			}
+		else {
+			if (data.current.temp_c < 15 ) {
+				var weatherstatus = "Heating up."
+			}
+		else {
+			if (data.current.temp_c < 20 ) {
+				var weatherstatus = "Hot outside."
+			}
+			else {
+				if (data.current.temp_c < 30 ) {
+					var weatherstatus = "Getting even hotter."
+				}
+				
+		
+		else {
+			if (data.current.temp_c < 35 ) {
+				var weatherstatus = "Hot outside, go in a pool!"
+			}
+		}
+	}
+	}
+	}
+	}
+	} 
+	}
+	}
+		weather.html(
+			'<a><img src='+iconurl+' style="vertical-align: middle;" width="46" height="46"></img></a>' + Math.round(data.current.temp_c) + '°C, ' + data.current.condition.text
+		)
+		quiweather.html(
+		 Math.round(data.current.temp_c) + '°C, ' + data.current.condition.text
+		)
+	}
+		)
+	
+	
+	
+	
+	
+	
+	
+	}
+	
 
 function quiloadDate() {
     var currentDate = new Date()

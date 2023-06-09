@@ -102,62 +102,159 @@ function startDate(){
     setTimeout(startDate, 1000);
 }
 
+function newWeatherAPI() {
+	const settings = {
+		async: true,
+		crossDomain: true,
+		url: 'https://weatherapi-com.p.rapidapi.com/current.json?q=53.1%2C-0.13',
+		method: 'GET',
+		headers: {
+			'X-RapidAPI-Key': '8fa374a51e304822a0132755230906',
+			'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+		}
+	};
+	
+	$.ajax(settings).done(function (response) {
+		console.log(response);
+	});
+}
+
 //Quick Features
 function quiloadWeather() {
-    var weather = $('.quickweanewsap')
+	var weather = $('.quickweanewsap')
 	var quiweather = $('#quiweather')
 	var quiweathertxt = $('.quiweathertxt')
-    var weaurl = 'https://api.openweathermap.org/data/2.5/weather' // OpenWeather API url
-	const apikeys = ["24a64a2d24697b4b292500aaa627a25e", "10917464510633b9565e55f5b53585ce", "2c202a47f8f483bce4461f360fbef98b", "95ce14abd8bc66f57c8ceba47576c785"]; 
-    const random = Math.floor(Math.random() * apikeys.length);
-    var weaapiKey = apikeys[random] // API key from OpenWeather
-	console.log(weaapiKey);
+	var api = 'https://api.weatherapi.com/v1/current.json' // OpenWeather API url
+	var apikey = "8fa374a51e304822a0132755230906"; 
 
 
-    function success(position) {
-        var latitude = position.coords.latitude
-        var longitude = position.coords.longitude
+    
+	$.getJSON(api + "?key=" + apikey + "&q=auto:ip&aqi=no", function(data) {
+    // JSON result in `data` variable
+	console.log(data)
 
-        $.getJSON(
-            weaurl + '?units=metric&lat=' + latitude + '&lon=' + longitude + '&appid=' + weaapiKey,
+	var iconurl = "https:" + data.current.condition.icon;
+
+
+	if (data.current.temp_c < -10) {
+		var weatherstatus = "Very cold outside."
+	}
+	else {
+		if (data.current.temp_c < -0 ) {
+			var weatherstatus = "Cooling down."
+		} 
+	else {
+		if (data.current.temp_c < 0 ) {
+			var weatherstatus = "Cold outside."
+		}
+	
+	else {
+		if (data.current.temp_c < 5 ) {
+			var weatherstatus = "Cold, but heating up."
+		}
+	else {
+		if (data.current.temp_c < 10 ) {
+			var weatherstatus = "Good temperature."
+		}
+	else {
+		if (data.current.temp_c < 15 ) {
+			var weatherstatus = "Heating up."
+		}
+	else {
+		if (data.current.temp_c < 20 ) {
+			var weatherstatus = "Hot outside."
+		}
+		else {
+			if (data.current.temp_c < 30 ) {
+				var weatherstatus = "Getting even hotter."
+			}
+			
+	
+	else {
+		if (data.current.temp_c < 35 ) {
+			var weatherstatus = "Hot outside, go in a pool!"
+		}
+	}
+}
+}
+}
+}
+} 
+}
+}
+	weather.html(
+		'<a><img src='+iconurl+' style="vertical-align: middle;" width="46" height="46"></img></a>' + Math.round(data.current.temp_c) + '°C, ' + data.current.condition.text
+	)
+	quiweather.html(
+	 Math.round(data.current.temp_c) + '°C, ' + data.current.condition.text
+	)
+}
+	)
+
+
+
+
+
+
+
+}
+
+
+
+
+function quiloadWeather2() {
+		var weather = $('.quickweanewsap')
+		var quiweather = $('#quiweather')
+		var quiweathertxt = $('.quiweathertxt')
+		var weaurl = 'https://api.weatherapi.com/v1/current.json' // OpenWeather API url
+
+		const apikeys = "8fa374a51e304822a0132755230906"; 
+		console.log(apikeys);
+
+
+		function success() {
+
+
+			$.getJSON(
+				weaurl + '?key=' + apikeys + '&q=auto:ip&aqi=no',
             function(data) {
 				
-				if (data.main.temp < -10) {
+				if (data.current.temp_c < -10) {
 					var weatherstatus = "Very cold outside."
 				}
 				else {
-					if (data.main.temp < -0 ) {
+					if (data.current.temp_c < -0 ) {
 						var weatherstatus = "Cooling down."
 					} 
 				else {
-					if (data.main.temp < 0 ) {
+					if (data.current.temp_c < 0 ) {
 						var weatherstatus = "Cold outside."
 					}
 				
 				else {
-					if (data.main.temp < 5 ) {
+					if (data.current.temp_c < 5 ) {
 						var weatherstatus = "Cold, but heating up."
 					}
 				else {
-					if (data.main.temp < 10 ) {
+					if (data.current.temp_c < 10 ) {
 						var weatherstatus = "Good temperature."
 					}
 				else {
-					if (data.main.temp < 15 ) {
+					if (data.current.temp_c < 15 ) {
 						var weatherstatus = "Heating up."
 					}
 				else {
-					if (data.main.temp < 20 ) {
+					if (data.current.temp_c < 20 ) {
 						var weatherstatus = "Hot outside."
 					}
 					else {
-						if (data.main.temp < 30 ) {
+						if (data.current.temp_c < 30 ) {
 							var weatherstatus = "Getting even hotter."
 						}
 						
 				
 				else {
-					if (data.main.temp < 35 ) {
+					if (data.current.temp_c < 35 ) {
 						var weatherstatus = "Hot outside, go in a pool!"
 					}
 				}
@@ -169,10 +266,10 @@ function quiloadWeather() {
 }
 }
                 weather.html(
-                    "<a><img src='system/img/icons/widgets.png' style='vertical-align: middle;' width='46' height='46'></img></a>" + Math.round(data.main.temp) + '°C, ' + weatherstatus
+                    "<a><img src='system/img/icons/widgets.png' style='vertical-align: middle;' width='46' height='46'></img></a>" + Math.round(data.current.temp_c) + '°C, ' + weatherstatus
                 )
 				quiweather.html(
-                 Math.round(data.main.temp) + '°C outside, ' + weatherstatus
+                 Math.round(data.current.temp_c) + '°C outside, ' + weatherstatus
                 )
             }
         )
@@ -191,16 +288,7 @@ function quiloadWeather() {
 	
 }
 
-function quiloadDate() {
-    var currentDate = new Date()
-    var dateString = currentDate
-        .toString()
-        .split(' ')
-        .splice(0, 4)
-        .join(' ')
 
-    $('#quidate').text(dateString)
-}
 
 
 

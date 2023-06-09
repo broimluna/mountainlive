@@ -28,7 +28,6 @@ id;
 
 //Startup Functions 
 function startupFunctions() {
-	quiloadDate();
 	quiloadWeather();
 	startDate();
 	startCookies();
