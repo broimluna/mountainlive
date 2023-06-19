@@ -203,31 +203,3 @@ reader.onloadend = function() {
 			
 		}
 	}
-	
-	function LeftAlignedTaskbar() {
-		var checkBox = document.getElementById("LeftAlignedTaskbarChk");
-		
-		if(checkBox.checked == true) {
-			$("#taskbar").css("text-align", "left");
-			$("#appsmenu").css("margin", "unset");
-			$("#appsmenu").css("left", "5px");
-			$(".quickweanewsap").css("left", "unset");
-			$(".quickweanewsap").css("position", "relative");
-			$(".quickweanewsap").css("top", "calc(0% + -27px)");     
-			$("#quickweanews").css("margin", "unset");                      
-			$("#quickweanews").css("left", "5px");                      
-			localStorage.setItem("mOSLeftAlignedTaskbar", "true")
-	}
-		else {
-			$("#taskbar").css("text-align", "");
-			$(".quickweanewsap").css("left", "");
-			$(".quickweanewsap").css("position", "");
-			$(".quickweanewsap").css("top", "");     
-			$("#quickweanews").css("margin", "");                      
-			$("#quickweanews").css("left", "");      
-			$("#appsmenu").css("margin", "");
-			$("#appsmenu").css("left", "");                
-			localStorage.setItem("mOSLeftAlignedTaskbar", "false")
-			
-		}
-	}
