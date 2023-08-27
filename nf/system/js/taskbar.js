@@ -1,17 +1,17 @@
 $(document).ready(function(){
 	var appsearch = document.getElementById("appSearch");
-	$("#appicons").click(function(){
+	$(".applist").click(function(){
 		document.getElementById("appsmenu").classList.toggle("opened");
 		document.getElementById("appsmenu").classList.toggle("openedtop");
 		appsearch.value = '';
-		$("#appicons li").css('display', 'block')
+		$(".applist li").css('display', 'block')
 	  }, function(){
 		document.getElementById("appsmenu").classList.remove("opened");
 		document.getElementById("appsmenu").classList.remove("openedtop");
 		document.getElementById("appsBtn").classList.remove("active");
 		appsearch.value = '';
 		tasksearch.value = '';
-		$("#appicons li").css('display', 'block')
+		$(".applist li").css('display', 'block')
 
 	});
   $("#settingsUP").click(function(){
@@ -31,11 +31,11 @@ $(document).ready(function(){
 
 
 
-function appSearch() {
+  function appSearch() {
 	var input, filter, ul, li, a, i, txtValue;
 	input = document.getElementById("appSearch");
 	filter = input.value.toUpperCase();
-	ul = document.getElementById("appicons");
+	ul = document.getElementsByClassName("applist")[0];
 	li = ul.getElementsByTagName("li");
 	for (i = 0; i < li.length; i++) {
 			a = li[i].getElementsByTagName("a")[0];

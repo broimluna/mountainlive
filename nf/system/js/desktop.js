@@ -1,3 +1,18 @@
+
+window.addEventListener('load', function () {
+    $("#startup").fadeOut();
+	var kernelver = document.getElementsByClassName("kernelver")[0];
+	kernelver.innerText = kernel_version;
+	var buildnumb = document.getElementsByClassName("buildnumb")[0];
+	buildnumb.innerText = kernel_version + "." + build_number;
+})
+function startupLoad() {
+    startDate();
+    quiloadWeather();
+	startCookies();
+}
+
+
 //right click menu huh
 document.oncontextmenu = rightClick;
   
@@ -74,10 +89,10 @@ function finishFTUE() {
 //Alerts
 window.alert = function(msg){
 	$('.alertxt').text(msg);
-	$('#window11').css('animation', 'fadeIn 0.3s linear');
-	$('#window11').css('display', 'inline');
+	$('.window12').css('animation', 'fadeIn 0.3s linear');
+	$('.window12').css('display', 'inline');
 	setTimeout(function(){
-	  $('#window11').css('animation', 'none');
+	  $('.window12').css('animation', 'none');
 	}, 300);
   }
   
@@ -85,10 +100,10 @@ window.alert = function(msg){
 	
 	// add listener for when our confirmation button is clicked
 	  $('.confirmButton').click(function(){
-	  $('#window11').css('animation', 'fadeOut 0.3s linear');
+	  $('.window12').css('animation', 'fadeOut 0.3s linear');
 	  setTimeout(function(){
-	  $('#window11').css('animation', 'none');
-	  $('#window11').css('display', 'none');
+	  $('.window12').css('animation', 'none');
+	  $('.window12').css('display', 'none');
 	  }, 300);
 	})
   });

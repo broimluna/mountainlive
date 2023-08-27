@@ -1,12 +1,18 @@
+
 var dataid = 0
 var windowid = 1
-window.addEventListener('load', function () {
-    $("#startup").fadeOut();
-})
-function startupLoad() {
-    startDate();
-    quiloadWeather();
-}
+//Product identification
+var product_name = "mountainOS";
+var kernel_version = "0.8";
+var build_number = "560";
+document.title = product_name;
+
+$(document).ready(function(){
+//Watermark Stamp
+let nLastModif = document.lastModified;
+var watermark = document.getElementsByTagName("watermark")[0];
+watermark.innerText = "Luna's " + product_name + "\n Version " + kernel_version + "." + build_number + "\nCompiled on " + nLastModif;
+});
 
 $(document).ready(function(){
 	$("window").each(function() {   
@@ -15,7 +21,7 @@ $(document).ready(function(){
         dataid++
         windowid++
         $(this).draggable({ cancel: ".wincontent", iframeFix: true});	// draggable
-		$("taskbar").append('<taskbarapp onclick="toggletb('+dataid+')" id="minimPanel' + dataid + '" data-id="' + dataid + '">' + $(this).attr("data-title") + '</taskbarapp>');
+		$("taskbar").append('<taskbarapp onclick="toggletb('+dataid+')" id="minimPanel' + dataid + '" data-id="' + dataid + '">' + $(this).attr("tbicon") + $(this).attr("data-title") + '</taskbarapp>');
         $(this).wrapInner('<div class="wincontent"></div>');
         $(this).prepend('<windowHeader><strong>' + $(this).attr("data-title") + '</strong><span title="Minimize" class="winminimize">_</span><span title="Maximize" class="winmaximize">&#9634;</span><span title="Close" class="winclose">x</span></windowheader><br>');
     })
@@ -72,9 +78,6 @@ function openWindow(id) {
     $("#minimPanel" + id).addClass("active");
     $(".window" + id).css("display", "block");
 }
-
-
-
 
 
 

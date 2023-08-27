@@ -1,4 +1,4 @@
-#taskbar, #appsmenu, #quickweanews, #timedateflyout, .window, .context-menu {
+taskbar, #appsmenu, #quickweanews, #timedateflyout, window, .context-menu {
     background-color: rgba(0, 0, 0, 0.6);
 }
 a, p, h1, h2, h3, li, div, input, strong, button, textarea, .menus {
@@ -43,28 +43,24 @@ hr {
     background: white;
     border: 0px solid transparent;
 }
-.taskbarPanel.activeTab {
+taskbarapp.active {
     background: rgba(255, 255, 255, 0.6);
 }
-.taskbarPanel:hover, .taskbarPanel.minimizedTab:hover {
+taskbarapp:hover {
     background: rgba(255, 255, 255, 0.4);
-    border: 2px solid rgba(0, 0, 0, 0.200);
     border-radius: 5px;
 }
 .quickweanewsap:hover, .timedatetext:hover {
     background: rgba(255, 255, 255, 0.4);
-    border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 5px;
     color: black !important;
 }
 #appsBtn.active {
     background: rgba(255, 255, 255, 0.6);
-    border: 2px solid rgba(0, 0, 0, 0.200);
     border-radius: 5px;
 }
 .quickweanewsap.active, .timedatetext.active {
     background: rgba(255, 255, 255, 0.6);
-    border: 2px solid rgba(0, 0, 0, 0.200);
     border-radius: 5px;
     color: black !important;
 
@@ -84,11 +80,11 @@ hr {
     transition: 0.1s;
     color: black !important;
 }
-.taskbarPanel.activeTab > strong {
+taskbarapp.active > strong {
     margin: 9px 0px;
     color: black !important;
 }
-.taskbarPanel:hover > strong {
+taskbarapp:hover > strong {
     margin: 9px 0px;
     color: black !important;
 }
@@ -102,15 +98,14 @@ hr {
     border: 2px solid rgba(255, 255, 255, 0.2);
     color: black !important;
 }
-.context-menu, .window, #taskbar, #appsmenu.opened, #quickweanews.opened, #timedateflyout.opened {
+.context-menu, window, taskbar, #appsmenu.opened, #quickweanews.opened, #timedateflyout.opened {
     border: 2px solid rgba(255, 255, 255, 0.2) ;
 }
 .cmd, .cmd div, .cmd span[data-text]:not(.cmd-inverted):not(.token):not(.emoji), .terminal, .terminal-output>:not(.raw) a, .terminal-output>:not(.raw) div, .terminal-output>:not(.raw) span[data-text]:not(.token):not(.inverted):not(.terminal-inverted):not(.cmd-inverted):not(.terminal-error):not(.emoji), .terminal.external [data-text] {
     color: #ffffff !important;
 }
-.windowHeader > span:hover {
-    border: 2px solid rgba(255, 255, 255, 0.2);
-}
-.windowHeader > span.winclose:hover, .windowHeader > span.winmaximize:hover,.windowHeader > span.winminimize:hover {
-	background: rgba(255, 255, 255, 0.3);
+
+.winclose, .winmaximize, .winminimize {
+    cursor: pointer;
+    color: white !important;
 }

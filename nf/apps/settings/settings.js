@@ -7,35 +7,7 @@ function openTab(tabName) {
 	document.getElementById(tabName).style.display = "block";
 	}
 
-	window.addEventListener('load', function () {
-
-		// Get the container element
-var btnContainer = document.getElementById("tabsettings");
-
-// Get all buttons with class="btn" inside the container
-var btns = btnContainer.getElementsByClassName("settingsbutton");
-
-// Loop through the buttons and add the active class to the current/clicked button
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("currentst");
-
-    // If there's no active class
-    if (current.length > 0) {
-      current[0].className = current[0].className.replace(" currentst", "");
-    }
-
-    // Add the active class to the current/clicked button
-    this.className += " currentst";
-  });
-}
-});
-setInterval(function() {
-	$(".currentst").each(function() {
-	var datatitle = $(this).attr("data-title") + " - Settings";
-	document.getElementsByClassName("cpapptitle")[0].innerText = datatitle;
-	});
-}, 1);
+	
  
 
 
@@ -46,7 +18,7 @@ setInterval(function() {
 	//  };
 
 	var changeBG = function(event) {
-        var output = document.getElementsByClassName('desktop')[0];
+        var output = document.getElementsByTagName("desktop")[0];
         var blob = event.target.files[0]
 
 var reader = new FileReader();
@@ -88,12 +60,12 @@ reader.onloadend = function() {
       };
 	
 	  var resetBG = function(event) {
-		var output = document.getElementsByClassName('desktop')[0];
+        var output = document.getElementsByTagName("desktop")[0];
 		output.style.background= "";
 		localStorage.removeItem("mOSBG");
 	  }
 	  function localBG() {
-		document.getElementsByClassName('desktop')[0].style.background = "url('https://bing.biturl.top/?resolution=3840&format=image&index=0&mkt=en-CA')";
+		document.getElementsByTagName("desktop")[0].style.background = "url('https://bing.biturl.top/?resolution=3840&format=image&index=0&mkt=en-CA')";
 		localStorage.setItem("mOSBG", "https://bing.biturl.top/?resolution=3840&format=image&index=0&mkt=en-CA");
 	}
 	

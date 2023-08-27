@@ -1,3 +1,10 @@
+html {
+    overflow: hidden;
+}
+.colorsecset, .taskbartab, #colorpickersetup, #AppTitleOnTaskBarPanelStp, .addAppTitleTaskbarTxt {
+    display: none;
+}
+
 @import url(../style.css);
 
 /* Special Values*/
@@ -268,6 +275,10 @@ hr {
     border-top: 1px solid #000;
 }
 
+a, p {
+    margin: 0 0 0 0 !important;
+}
+
 
 #abranding {
     display: flow-root;
@@ -298,6 +309,8 @@ hr {
   #startup {
     position: fixed;
     display: block; 
+    left: 0;
+    top: 0;
     background: rgba(0, 0, 0, 0.2);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
@@ -359,10 +372,13 @@ windowheader > strong > strong {
     font-size: 15px;
 }
 .winclose {
-    top: -1px;
+    top: -2px;
 }
 .winmaximize {
-    top: 6px;
+    top: 4px;
+}
+.winminimize {
+    top: -5px;
 }
 .winclose, .winmaximize, .winminimize {
     cursor: pointer;
@@ -418,14 +434,14 @@ window.fullSizeWindow {
     width: 100% !important;
 }
 taskbarapp {
-    top: -3px;
-    padding: 13px 5px;
+    top: -7.5px;
+    padding: 22px 5px;
     border-radius: 5px;
     line-height: unset;
     background: transparent;
     transition: 0.2s;
     font-family: Segoe UI;
-    font-size: 13px;
+    font-size: 0px;
 }
 taskbarapp:hover {
     background: rgba(0, 0, 0, 0.2);
@@ -435,12 +451,19 @@ taskbarapp.active {
     background: rgba(0, 0, 0, 0.4);
     color: white;
 }
+
+taskbarapp > img {
+    position: relative;
+    top: 15.5px;
+    padding-right: 0px;
+}
 #appsBtn {
         display: inline !important;
 }
 #appsBtn > img {
-        top: 10px;
+        top: 15.5px;
         position: relative;
+        padding-right: 0px !important;
 }
 
 .feed-item-title, .feed-title {
@@ -568,7 +591,7 @@ taskbarapp.active {
         margin-left: auto;
         margin-right: auto;
         display: table;
-        margin: 2px auto -16px auto;
+        margin: 2px auto -22px auto;
 }
 
 #tasksicons {
@@ -628,6 +651,7 @@ taskbarapp.active {
 	bottom: 0px;
 	right: 0;
 	left: 0;
+    border-top: 2px solid black;
 }
 
 #userProfile div {
@@ -908,6 +932,8 @@ taskbarapp.active {
 
 #firstexperience {
     z-index: 999999;
+    left: 0;
+    top: 0;
     height: 100%;
     width: 100%;
     display: none;
@@ -1042,7 +1068,7 @@ watermark {
 
 
 
-.window5 > .wincontent iframe {
+.window6 > .wincontent iframe {
     height: calc(100% - 20px);
     border-radius: 5px;
     position: unset;
@@ -1064,31 +1090,34 @@ watermark {
     min-height: 252px;
 }
 .window5 > .wincontent {
-    min-width: 570px;
-    min-height: 482px;
+    min-width: 180px;
+    min-height: 244px;
+    max-width: 514px;
+    max-height: 360px;
+}
+.window5.fullSizeWindow > .wincontent {
+    min-width: unset;
+    min-height: unset;
+    max-width: unset;
+    max-height: unset;
 }
 .window6 > .wincontent {
     min-width: 830px;
     min-height: 635px;
 }
 .window7 > .wincontent {
-    min-width: 286px;
-    min-height: 356px;
+    min-width: 500px;
+    min-height: 500px;
 }
 .window8 .wincontent {
-    min-width: 464px;
-    min-height: 280px;
-    max-width: 464px;
-    max-height: 280px;
+    min-width: 390px;
+    min-height: 390px;
 
 }
-.window8.fullSizeWindow .wincontent {
-    min-width: unset !important;
-    min-height: unset !important;
-    max-width: unset !important;
-    max-height: unset !important;  
 
-}
+/*.window8, .settingsapp, #minimPanel8, #settingsUP {
+    display: none !important;
+}*/
 
 .window9 .wincontent {
     min-width: 400px;

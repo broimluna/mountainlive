@@ -102,7 +102,7 @@ function createCookie(cname,cvalue,exdays) {
 		var base64uncom1 = base64uncom0.replace("ebubjnbhf", "data:image");
 		var base64uncom2 = base64uncom1.replace("moslssecurity", "base64");
 		var base64uncompressed = base64uncom2.replaceAll("'", "F");
-		$('.desktop').css('background', 'url(' + base64uncompressed + ')');
+		$('desktop').css('background', 'url(' + base64uncompressed + ')');
 
 	} else {
 		return;		
@@ -171,7 +171,7 @@ function createCookie(cname,cvalue,exdays) {
 			output.src = base64uncompressed;
 			setoutput.src = base64uncompressed;		
 		} else {
-			return;		
+			void(0);
 		}
 		var username = localStorage.getItem("mOSUsername");
 		document.getElementsByClassName("userProfileTxt")[0].innerText = username;
@@ -192,9 +192,6 @@ function createCookie(cname,cvalue,exdays) {
 	}
 
   function startCookies() {
-	mOSLeftBarCookie();
-	checkAppTitleOnTskBarCook();
-	setColorCookie();
 	set_style_from_cookie();
 	CheckFTUEandUsername();
 	checkBGCookie();

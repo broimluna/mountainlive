@@ -17,7 +17,7 @@ jQuery(function($, undefined) {
 		
     }, {
 
-        greetings: "mountainOS [version " + kernelver + "." + buildnumb + "]\nRun any Javascript command...",
+        greetings: product_name + " [version " + kernel_version + "." + build_number + "]\nRun any Javascript command...",
         name: 'Terminal',
         height: 200,
         prompt: '> '
