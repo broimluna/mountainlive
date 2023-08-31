@@ -346,7 +346,7 @@ body > .window-titlebar {
 .menus *, .menu-popup * {
 	font-size: 12px;
 	border-radius: 15px;
-	color: black;
+	color: var(--testing);
 }
 .menu-container {
 	margin-bottom: 1px;

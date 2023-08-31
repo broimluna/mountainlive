@@ -1,13 +1,20 @@
+@import url(../style.css);
+
+/* Special Values*/
+
 html {
     overflow: hidden;
+    background-color: transparent !important;
 }
 .colorsecset, .taskbartab, #colorpickersetup, #AppTitleOnTaskBarPanelStp, .addAppTitleTaskbarTxt {
     display: none;
 }
 
-@import url(../style.css);
+h1, h2, h3  {
+    margin: 0;
+    font-size: medium
+}
 
-/* Special Values*/
 button, input, input[type=file], #Bronze {
     border-radius: 5px;
     border: 2px solid rgba(0, 0, 0, 0.200);
@@ -313,8 +320,8 @@ a, p {
     top: 0;
     background: rgba(0, 0, 0, 0.2);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     width: 100%;
     height: 100%;
     z-index: 999999;
@@ -356,7 +363,7 @@ windowheader {
 }
 windowheader > strong {
     display: inline-flex;
-    margin: 0px 0px 0 10px;
+    margin: 0px 0px 0 0px;
 }
 windowheader > strong > strong {
     color: black;
@@ -370,6 +377,11 @@ windowheader > strong > strong {
     line-height: unset;
     position: absolute;
     font-size: 15px;
+}
+windowheader > strong > img{
+    transform: scale(0.7);
+    top: -3px;
+    position: relative;
 }
 .winclose {
     top: -2px;
@@ -434,7 +446,7 @@ window.fullSizeWindow {
     width: 100% !important;
 }
 taskbarapp {
-    top: -7.5px;
+    top: -8px;
     padding: 22px 5px;
     border-radius: 5px;
     line-height: unset;
@@ -442,6 +454,7 @@ taskbarapp {
     transition: 0.2s;
     font-family: Segoe UI;
     font-size: 0px;
+    transform: scale(0.9);
 }
 taskbarapp:hover {
     background: rgba(0, 0, 0, 0.2);
@@ -450,6 +463,22 @@ taskbarapp:hover {
 taskbarapp.active {
     background: rgba(0, 0, 0, 0.4);
     color: white;
+    transform: scale(1);
+
+}
+
+taskbarapp.active::before {
+        border-radius: 3px;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 3px;
+        left: 0;
+        margin: 0 12px;
+        position: absolute;
+        right: 0;
+        background-color: white;
+        transition: 0.2s;
 }
 
 taskbarapp > img {
@@ -457,6 +486,7 @@ taskbarapp > img {
     top: 15.5px;
     padding-right: 0px;
 }
+
 #appsBtn {
         display: inline !important;
 }
@@ -476,32 +506,32 @@ taskbarapp > img {
 
 .timedatetext {
     position: absolute;
+    height: auto;
+    top: 10px;
+    right: 4px;
+    border-radius: 5px;
     border: 2px solid transparent;
-    top: calc(0% + 10px);
-    right: 2px;
-    color: black;
-    font-family: Segoe UI;
-    text-align: right;
-    font-size: 15px;
     transition: 0.2s;
-    cursor: default;
 }
 .quickweanewsap {
     position: absolute;
-    height: auto;
-    display: inline-table;
-    width: auto;
-    top: calc(0% + -2px);
+    height: 40px;
+    top: 2.3px;
+    left: 4px;
+    border-radius: 5px;
     border: 2px solid transparent;
-    left: -2px;
-    margin: 0 !important;
-    line-height: 0px;
-    height: 100%;
-    color: black;
-    font-family: Segoe UI;
-    font-size: 15px;
     transition: 0.2s;
-    cursor: default;
+}
+.quickweanewsap > a {
+    top: -2px;
+    position: relative;
+}
+.quickweanewsap > a > img {
+    top: 0;
+    position: relative;
+}
+.quickweanewsap.active > a, .quickweanewsap:hover > a {
+    color: white;
 }
 .quickweanewsap:hover, .timedatetext:hover {
     background: rgba(0, 0, 0, 0.4);
@@ -986,12 +1016,12 @@ taskbarapp > img {
 
 
 .FTUEtext {
-    left: 0;
+    left: 0 !important;
     right: 0;
     line-height: 200px;
-    margin: 0 auto;
+    margin: 0 auto !important;
     text-align: center;
-    margin-top: -100px;
+    margin-top: -100px !important;
     font-size: 45px;
     position: absolute !important;
     top: 50%;
@@ -1049,7 +1079,7 @@ watermark {
 }
 
 /*window app sizes*/
-.window {	top: 60px;	left: 120px; }
+window {	top: 60px;	left: 120px; }
 .window1 {	top: 60px;	left: 120px;}
 .window2 {	top: 60px;	left: 120px;}
 .window3 {	top: 60px;	left: 120px;}

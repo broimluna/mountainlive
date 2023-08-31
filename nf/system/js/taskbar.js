@@ -114,11 +114,11 @@ function startDate(){
 function quiloadWeather() {
 	var weather = $('.quickweanewsap')
 	var quiweather = $('#quiweather')
-	var quiweathertxt = $('.quiweathertxt')
+	var quiweatherfull = $('.quiweatherfull')
 	var api = 'https://api.openweathermap.org/data/2.5/weather' // OpenWeather API url
 	var apikey = "24a64a2d24697b4b292500aaa627a25e"; 
 	weather.html(
-		'<a><img src="system/img/icons/widgets.png" style="vertical-align: middle;" width="46" height="46"></img></a>' + "Fetching the weather..."
+		'<a><img src="system/img/icons/widgets.png" style="vertical-align: middle;" width="42" height="42"></img>Fetching the weather...</a>'
 	)
 	quiweather.html(
 		"fetching the weather..."
@@ -138,10 +138,10 @@ function quiloadWeather() {
 	
 
 	weather.html(
-		'<a><img src='+apiicon+' style="vertical-align: middle;" width="46" height="46"></img></a>' + Math.round(data.main.temp) + '°C, ' + data.weather[0].main
+		'<a><img src='+apiicon+' style="vertical-align: middle;" width="42" height="42"></img>' + Math.round(data.main.temp) + '°C, ' + data.weather[0].main +'</a>'
 	)
 	quiweather.html(
-		Math.round(data.main.temp) + '°C, ' + data.weather[0].description
+		"<a>" + Math.round(data.main.temp) + '°C, ' + data.weather[0].description + "</a>"
 	)
 	})
 	}
@@ -149,10 +149,10 @@ function quiloadWeather() {
 
 	function errorFunction() {
 		weather.html(
-			'<a><img src="system/img/icons/widgets.png" style="vertical-align: middle;" width="46" height="46"></img></a>' + "Could not fetch weather"
+			'<a><img src="system/img/icons/widgets.png" style="vertical-align: middle;" width="42" height="42"></img></a>' + "Could not fetch weather"
 		)
-		quiweather.html(
-			'<a><img src="system/img/icons/widgets.png" style="vertical-align: middle;" width="46" height="46"></img></a>' + "Could not fetch weather"
+		quiweatherfull.html(
+			'<a>Could not fetch weather...</a>'
 		)
 	}
 

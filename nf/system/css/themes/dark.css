@@ -1,3 +1,5 @@
+
+
 taskbar, #appsmenu, #quickweanews, #timedateflyout, window, .context-menu {
     background-color: rgba(0, 0, 0, 0.6);
 }
@@ -43,12 +45,18 @@ hr {
     background: white;
     border: 0px solid transparent;
 }
+#userProfile {
+    border-top: 2px solid#ffffff;
+}
 taskbarapp.active {
     background: rgba(255, 255, 255, 0.6);
 }
 taskbarapp:hover {
     background: rgba(255, 255, 255, 0.4);
     border-radius: 5px;
+}
+taskbarapp.active::before {
+    background-color: black;
 }
 .quickweanewsap:hover, .timedatetext:hover {
     background: rgba(255, 255, 255, 0.4);
@@ -66,18 +74,24 @@ taskbarapp:hover {
 
 }
 
+.quickweanewsap.active > a, .quickweanewsap:hover > a {
+    color: black !important;
+}
+
 .tdfi {
     filter: invert(1);    
 }
 #abranding img {
     filter: invert(0);
 }
-#appicons a:hover, #tasksicons a:hover {
+.applist li:hover, #tasksicons a:hover {
 	-moz-border-radius:3px; 
     -webkit-border-radius:3px;
     background: rgba(255, 255, 255, 0.4);
     border: 1px solid rgba(0, 0, 0, 0.200);
     transition: 0.1s;
+}
+.applist li:hover > a {
     color: black !important;
 }
 taskbarapp.active > strong {

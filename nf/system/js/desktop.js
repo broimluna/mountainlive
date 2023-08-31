@@ -1,3 +1,7 @@
+let nLastModif = document.lastModified;
+if (openWindow){
+    console.log( developer_name + "'s " + product_name + "\nVersion " + kernel_version + "." + build_number + "\nCompiled on " + nLastModif + "\nNF Kernel is loaded.")
+  }
 
 window.addEventListener('load', function () {
     $("#startup").fadeOut();
@@ -5,6 +9,7 @@ window.addEventListener('load', function () {
 	kernelver.innerText = kernel_version;
 	var buildnumb = document.getElementsByClassName("buildnumb")[0];
 	buildnumb.innerText = kernel_version + "." + build_number;
+	
 })
 function startupLoad() {
     startDate();
